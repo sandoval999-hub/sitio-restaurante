@@ -1,0 +1,23 @@
+[
+    {
+        "orderNumber": "ORD-13950",
+        "date": "08\/03\/2026",
+        "time": "03:46 PM",
+        "customerName": "sq",
+        "customerPhone": "",
+        "items": [
+            {
+                "id": "bf24",
+                "name": "Agua 1 lt",
+                "emoji": "💧",
+                "price": 1,
+                "qty": 4,
+                "total": 4,
+                "orderType": "Comer Aquí"
+            }
+        ],
+        "subtotal": 4,
+        "total": 4,
+        "timestamp": "2026-03-08 15:46:23"
+    }
+]

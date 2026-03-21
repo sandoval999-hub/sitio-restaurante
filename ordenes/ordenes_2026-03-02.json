@@ -1,0 +1,410 @@
+[
+    {
+        "orderNumber": "ORD-27923",
+        "date": "02\/03\/2026",
+        "time": "02:47 PM",
+        "customerName": "carlos",
+        "customerPhone": "",
+        "items": [
+            {
+                "id": "t8",
+                "name": "Ayote\/Queso",
+                "emoji": "🥒,🧀",
+                "price": 0.95,
+                "qty": 4,
+                "total": 3.8,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "t7",
+                "name": "Queso\/Loroco",
+                "emoji": "🌿,🧀",
+                "price": 0.95,
+                "qty": 3,
+                "total": 2.8499999999999996,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "t2",
+                "name": "Frijol\/Queso",
+                "emoji": "🫘,🧀",
+                "price": 0.95,
+                "qty": 2,
+                "total": 1.9,
+                "orderType": "Para Llevar"
+            }
+        ],
+        "subtotal": 8.549999999999999,
+        "total": 8.549999999999999,
+        "timestamp": "2026-03-02 14:47:08"
+    },
+    {
+        "orderNumber": "ORD-67469",
+        "date": "02\/03\/2026",
+        "time": "02:47 PM",
+        "customerName": "cralos",
+        "customerPhone": "",
+        "items": [
+            {
+                "id": "e2",
+                "name": "Tocino\/Queso",
+                "emoji": "🥓,🧀",
+                "price": 1.25,
+                "qty": 3,
+                "total": 3.75,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "e3",
+                "name": "Hongos\/Queso",
+                "emoji": "🍄,🧀",
+                "price": 1.25,
+                "qty": 3,
+                "total": 3.75,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "b2",
+                "name": "Coca-Cola",
+                "emoji": "🥤",
+                "price": 1.25,
+                "qty": 3,
+                "total": 3.75,
+                "orderType": "Comer Aquí"
+            }
+        ],
+        "subtotal": 11.25,
+        "total": 11.25,
+        "timestamp": "2026-03-02 14:47:45"
+    },
+    {
+        "orderNumber": "ORD-15294",
+        "date": "02\/03\/2026",
+        "time": "02:48 PM",
+        "customerName": "carlos",
+        "customerPhone": "",
+        "items": [
+            {
+                "id": "t4",
+                "name": "Salami\/Queso",
+                "emoji": "🍖,🧀",
+                "price": 0.95,
+                "qty": 3,
+                "total": 2.8499999999999996,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "t3",
+                "name": "Jamón\/Queso",
+                "emoji": "🍗,🧀",
+                "price": 0.95,
+                "qty": 3,
+                "total": 2.8499999999999996,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "e2",
+                "name": "Tocino\/Queso",
+                "emoji": "🥓,🧀",
+                "price": 1.25,
+                "qty": 2,
+                "total": 2.5,
+                "orderType": "Comer Aquí"
+            }
+        ],
+        "subtotal": 8.2,
+        "total": 8.2,
+        "timestamp": "2026-03-02 14:48:54"
+    },
+    {
+        "orderNumber": "ORD-56183",
+        "date": "02\/03\/2026",
+        "time": "02:49 PM",
+        "customerName": "hsusiwlu",
+        "customerPhone": "61982539",
+        "items": [
+            {
+                "id": "t2",
+                "name": "Frijol\/Queso",
+                "emoji": "🫘,🧀",
+                "price": 0.95,
+                "qty": 4,
+                "total": 3.8,
+                "orderType": "Domicilio"
+            },
+            {
+                "id": "t7",
+                "name": "Queso\/Loroco",
+                "emoji": "🌿,🧀",
+                "price": 0.95,
+                "qty": 2,
+                "total": 1.9,
+                "orderType": "Domicilio"
+            }
+        ],
+        "subtotal": 5.699999999999999,
+        "total": 5.699999999999999,
+        "timestamp": "2026-03-02 14:49:44"
+    },
+    {
+        "orderNumber": "ORD-53320",
+        "date": "02\/03\/2026",
+        "time": "03:00 PM",
+        "customerName": "hsuwoshiuws",
+        "customerPhone": "",
+        "items": [
+            {
+                "id": "t7",
+                "name": "Queso\/Loroco",
+                "emoji": "🌿,🧀",
+                "price": 0.95,
+                "qty": 4,
+                "total": 3.8,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "t8",
+                "name": "Ayote\/Queso",
+                "emoji": "🥒,🧀",
+                "price": 0.95,
+                "qty": 2,
+                "total": 1.9,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "t2",
+                "name": "Frijol\/Queso",
+                "emoji": "🫘,🧀",
+                "price": 0.95,
+                "qty": 2,
+                "total": 1.9,
+                "orderType": "Para Llevar"
+            },
+            {
+                "id": "t1",
+                "name": "Revueltas",
+                "emoji": "🫓",
+                "price": 0.95,
+                "qty": 2,
+                "total": 1.9,
+                "orderType": "Para Llevar"
+            }
+        ],
+        "subtotal": 9.5,
+        "total": 9.5,
+        "timestamp": "2026-03-02 15:00:07"
+    },
+    {
+        "orderNumber": "ORD-20752",
+        "date": "02\/03\/2026",
+        "time": "08:47 PM",
+        "customerName": "jeffer",
+        "customerPhone": "",
+        "items": [
+            {
+                "id": "t2",
+                "name": "Frijol\/Queso",
+                "emoji": "🫘,🧀",
+                "price": 0.95,
+                "qty": 2,
+                "total": 1.9,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "t3",
+                "name": "Jamón\/Queso",
+                "emoji": "🍗,🧀",
+                "price": 0.95,
+                "qty": 2,
+                "total": 1.9,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "e2",
+                "name": "Tocino\/Queso",
+                "emoji": "🥓,🧀",
+                "price": 1.25,
+                "qty": 3,
+                "total": 3.75,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "e4",
+                "name": "Chorizo\/Queso",
+                "emoji": "🌭,🧀",
+                "price": 1.25,
+                "qty": 2,
+                "total": 2.5,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "t2",
+                "name": "Frijol\/Queso",
+                "emoji": "🫘,🧀",
+                "price": 0.95,
+                "qty": 2,
+                "total": 1.9,
+                "orderType": "Para Llevar"
+            }
+        ],
+        "subtotal": 11.950000000000001,
+        "total": 11.950000000000001,
+        "timestamp": "2026-03-02 20:47:06"
+    },
+    {
+        "orderNumber": "ORD-76836",
+        "date": "02\/03\/2026",
+        "time": "08:49 PM",
+        "customerName": "jeffer",
+        "customerPhone": "",
+        "items": [
+            {
+                "id": "t1",
+                "name": "Revueltas",
+                "emoji": "🫓",
+                "price": 0.95,
+                "qty": 2,
+                "total": 1.9,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "t2",
+                "name": "Frijol\/Queso",
+                "emoji": "🫘,🧀",
+                "price": 0.95,
+                "qty": 3,
+                "total": 2.8499999999999996,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "t3",
+                "name": "Jamón\/Queso",
+                "emoji": "🍗,🧀",
+                "price": 0.95,
+                "qty": 2,
+                "total": 1.9,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "t2",
+                "name": "Frijol\/Queso",
+                "emoji": "🫘,🧀",
+                "price": 0.95,
+                "qty": 2,
+                "total": 1.9,
+                "orderType": "Para Llevar"
+            },
+            {
+                "id": "t3",
+                "name": "Jamón\/Queso",
+                "emoji": "🍗,🧀",
+                "price": 0.95,
+                "qty": 3,
+                "total": 2.8499999999999996,
+                "orderType": "Para Llevar"
+            }
+        ],
+        "subtotal": 11.4,
+        "total": 11.4,
+        "timestamp": "2026-03-02 20:49:07"
+    },
+    {
+        "orderNumber": "ORD-79992",
+        "date": "02\/03\/2026",
+        "time": "08:50 PM",
+        "customerName": "gggg",
+        "customerPhone": "71025656",
+        "items": [
+            {
+                "id": "t7",
+                "name": "Queso\/Loroco",
+                "emoji": "🌿,🧀",
+                "price": 0.95,
+                "qty": 4,
+                "total": 3.8,
+                "orderType": "Domicilio"
+            }
+        ],
+        "subtotal": 3.8,
+        "total": 3.8,
+        "timestamp": "2026-03-02 20:50:27"
+    },
+    {
+        "orderNumber": "ORD-52883",
+        "date": "02\/03\/2026",
+        "time": "08:57 PM",
+        "customerName": "sarai",
+        "customerPhone": "",
+        "items": [
+            {
+                "id": "t1",
+                "name": "Revueltas",
+                "emoji": "🫓",
+                "price": 0.95,
+                "qty": 4,
+                "total": 3.8,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "t2",
+                "name": "Frijol\/Queso",
+                "emoji": "🫘,🧀",
+                "price": 0.95,
+                "qty": 3,
+                "total": 2.8499999999999996,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "t3",
+                "name": "Jamón\/Queso",
+                "emoji": "🍗,🧀",
+                "price": 0.95,
+                "qty": 3,
+                "total": 2.8499999999999996,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "t2",
+                "name": "Frijol\/Queso",
+                "emoji": "🫘,🧀",
+                "price": 0.95,
+                "qty": 2,
+                "total": 1.9,
+                "orderType": "Para Llevar"
+            }
+        ],
+        "subtotal": 11.4,
+        "total": 11.4,
+        "timestamp": "2026-03-02 20:57:06"
+    },
+    {
+        "orderNumber": "ORD-15601",
+        "date": "02\/03\/2026",
+        "time": "08:58 PM",
+        "customerName": "jjjj",
+        "customerPhone": "710256556",
+        "items": [
+            {
+                "id": "t7",
+                "name": "Queso\/Loroco",
+                "emoji": "🌿,🧀",
+                "price": 0.95,
+                "qty": 3,
+                "total": 2.8499999999999996,
+                "orderType": "Domicilio"
+            },
+            {
+                "id": "t3",
+                "name": "Jamón\/Queso",
+                "emoji": "🍗,🧀",
+                "price": 0.95,
+                "qty": 3,
+                "total": 2.8499999999999996,
+                "orderType": "Domicilio"
+            }
+        ],
+        "subtotal": 5.699999999999999,
+        "total": 5.699999999999999,
+        "timestamp": "2026-03-02 20:58:53"
+    }
+]

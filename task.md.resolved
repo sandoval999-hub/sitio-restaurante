@@ -1,0 +1,8 @@
+# Pupusería Order System - Tasks
+
+- [ ] Create `css/styles.css` with premium design system
+- [ ] Create `js/app.js` with menu interaction logic
+- [ ] Create `index.php` main page with menu and order UI
+- [ ] Create `generar_ticket.php` for ticket generation
+- [ ] Delete empty [menupipiseria.php](file:///c:/Users/Admin/Desktop/pupuseria/menupipiseria.php)
+- [ ] Verify system works end-to-end in browser

@@ -1,0 +1,248 @@
+[
+    {
+        "orderNumber": "ORD-96272",
+        "date": "05\/03\/2026",
+        "time": "11:03 AM",
+        "customerName": "jopjo",
+        "customerPhone": "",
+        "items": [
+            {
+                "id": "t1",
+                "name": "Revueltas",
+                "emoji": "🫓",
+                "price": 0.95,
+                "qty": 5,
+                "total": 4.75,
+                "orderType": "Comer Aquí"
+            }
+        ],
+        "subtotal": 4.75,
+        "total": 4.75,
+        "timestamp": "2026-03-05 11:03:34"
+    },
+    {
+        "orderNumber": "ORD-11731",
+        "date": "05\/03\/2026",
+        "time": "11:32 AM",
+        "customerName": "jajaj",
+        "customerPhone": "",
+        "items": [
+            {
+                "id": "m7",
+                "name": "Canoa de leche o frijol",
+                "emoji": "🍌",
+                "price": 1.25,
+                "qty": 1,
+                "total": 1.25,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "m3",
+                "name": "Tamal de Azúcar",
+                "emoji": "🫔",
+                "price": 1,
+                "qty": 4,
+                "total": 4,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "m4",
+                "name": "Tamal Pisque",
+                "emoji": "🫔,🫘",
+                "price": 0.6,
+                "qty": 4,
+                "total": 2.4,
+                "orderType": "Comer Aquí"
+            }
+        ],
+        "subtotal": 7.65,
+        "total": 7.65,
+        "timestamp": "2026-03-05 11:32:45"
+    },
+    {
+        "orderNumber": "ORD-63900",
+        "date": "05\/03\/2026",
+        "time": "11:45 AM",
+        "customerName": "ggggg",
+        "customerPhone": "",
+        "items": [
+            {
+                "id": "t1",
+                "name": "Revueltas",
+                "emoji": "🫓",
+                "price": 0.95,
+                "qty": 3,
+                "total": 2.8499999999999996,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "t2",
+                "name": "Frijol\/Queso",
+                "emoji": "🫘,🧀",
+                "price": 0.95,
+                "qty": 1,
+                "total": 0.95,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "e7",
+                "name": "Revuelta\/Jalapeño",
+                "emoji": "🫓,🌶️",
+                "price": 1.25,
+                "qty": 2,
+                "total": 2.5,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "m7",
+                "name": "Canoas",
+                "emoji": "🍌",
+                "price": 1.25,
+                "qty": 1,
+                "total": 1.25,
+                "orderType": "Comer Aquí"
+            }
+        ],
+        "subtotal": 7.55,
+        "total": 7.55,
+        "timestamp": "2026-03-05 11:45:35"
+    },
+    {
+        "orderNumber": "ORD-26305",
+        "date": "05\/03\/2026",
+        "time": "11:45 AM",
+        "customerName": "ggggg",
+        "customerPhone": "",
+        "items": [
+            {
+                "id": "t1",
+                "name": "Revueltas",
+                "emoji": "🫓",
+                "price": 0.95,
+                "qty": 3,
+                "total": 2.8499999999999996,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "t2",
+                "name": "Frijol\/Queso",
+                "emoji": "🫘,🧀",
+                "price": 0.95,
+                "qty": 1,
+                "total": 0.95,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "e7",
+                "name": "Revuelta\/Jalapeño",
+                "emoji": "🫓,🌶️",
+                "price": 1.25,
+                "qty": 2,
+                "total": 2.5,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "m7",
+                "name": "Canoas",
+                "emoji": "🍌",
+                "price": 1.25,
+                "qty": 1,
+                "total": 1.25,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "bf16",
+                "name": "Té Lipton 2.5 lt",
+                "emoji": "🧊",
+                "price": 2.5,
+                "qty": 1,
+                "total": 2.5,
+                "orderType": "Comer Aquí"
+            }
+        ],
+        "subtotal": 10.05,
+        "total": 10.05,
+        "timestamp": "2026-03-05 11:45:44"
+    },
+    {
+        "orderNumber": "ORD-69122",
+        "date": "05\/03\/2026",
+        "time": "01:08 PM",
+        "customerName": "gygygiu",
+        "customerPhone": "",
+        "items": [
+            {
+                "id": "bc1",
+                "name": "Café",
+                "emoji": "🫖",
+                "price": 0.5,
+                "qty": 2,
+                "total": 1,
+                "orderType": "Comer Aquí"
+            }
+        ],
+        "subtotal": 1,
+        "total": 1,
+        "timestamp": "2026-03-05 13:08:15"
+    },
+    {
+        "orderNumber": "ORD-29877",
+        "date": "05\/03\/2026",
+        "time": "01:10 PM",
+        "customerName": "uoiulhi",
+        "customerPhone": "",
+        "items": [
+            {
+                "id": "m2",
+                "name": "Tamal de Costilla",
+                "emoji": "🫔,🍖",
+                "price": 1,
+                "qty": 6,
+                "total": 6,
+                "orderType": "Comer Aquí"
+            }
+        ],
+        "subtotal": 6,
+        "total": 6,
+        "timestamp": "2026-03-05 13:10:38"
+    },
+    {
+        "orderNumber": "ORD-39575",
+        "date": "05\/03\/2026",
+        "time": "01:16 PM",
+        "customerName": "uoiulhi",
+        "customerPhone": "",
+        "items": [
+            {
+                "id": "e2",
+                "name": "Tocino\/Queso",
+                "emoji": "🥓,🧀",
+                "price": 1.25,
+                "qty": 2,
+                "total": 2.5,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "t1",
+                "name": "Revueltas",
+                "emoji": "🫓",
+                "price": 0.95,
+                "qty": 4,
+                "total": 3.8,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "bf1",
+                "name": "Fresco Natural",
+                "emoji": "🍹",
+                "price": 0.5,
+                "qty": 3,
+                "total": 1.5,
+                "orderType": "Comer Aquí"
+            }
+        ],
+        "subtotal": 7.8,
+        "total": 7.8,
+        "timestamp": "2026-03-05 13:16:25"
+    }
+]

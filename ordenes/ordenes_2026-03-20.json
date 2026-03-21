@@ -1,0 +1,24 @@
+[
+    {
+        "orderNumber": "Orden #12",
+        "date": "20\/03\/2026",
+        "time": "04:03 PM",
+        "customerName": "jeffer",
+        "customerPhone": "",
+        "items": [
+            {
+                "id": "t6",
+                "name": "Chicharrón\/Frijol",
+                "emoji": "🐷,🫘",
+                "price": 0.95,
+                "qty": 6,
+                "total": 5.699999999999999,
+                "orderType": "Para Llevar",
+                "masa": "maiz"
+            }
+        ],
+        "subtotal": 5.699999999999999,
+        "total": 5.699999999999999,
+        "timestamp": "2026-03-20 16:03:24"
+    }
+]

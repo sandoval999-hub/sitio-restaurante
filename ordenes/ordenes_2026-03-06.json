@@ -1,0 +1,77 @@
+[
+    {
+        "orderNumber": "ORD-57113",
+        "date": "06\/03\/2026",
+        "time": "09:00 PM",
+        "customerName": "josue",
+        "customerPhone": "",
+        "items": [
+            {
+                "id": "t7",
+                "name": "Queso",
+                "emoji": "🧀",
+                "price": 0.95,
+                "qty": 3,
+                "total": 2.8499999999999996,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "t10",
+                "name": "Mora\/Queso",
+                "emoji": "🍃,🧀",
+                "price": 0.95,
+                "qty": 3,
+                "total": 2.8499999999999996,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "e6",
+                "name": "Chicharrón",
+                "emoji": "🐷",
+                "price": 1.25,
+                "qty": 2,
+                "total": 2.5,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "bf4",
+                "name": "Gaseosa lata",
+                "emoji": "🥫",
+                "price": 1,
+                "qty": 2,
+                "total": 2,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "bc2",
+                "name": "Café con leche",
+                "emoji": "🫖,🥛",
+                "price": 0.75,
+                "qty": 2,
+                "total": 1.5,
+                "orderType": "Comer Aquí"
+            },
+            {
+                "id": "t2",
+                "name": "Frijol\/Queso",
+                "emoji": "🫘,🧀",
+                "price": 0.95,
+                "qty": 4,
+                "total": 3.8,
+                "orderType": "Para Llevar"
+            },
+            {
+                "id": "t1",
+                "name": "Revueltas",
+                "emoji": "🫓",
+                "price": 0.95,
+                "qty": 4,
+                "total": 3.8,
+                "orderType": "Para Llevar"
+            }
+        ],
+        "subtotal": 19.3,
+        "total": 19.3,
+        "timestamp": "2026-03-06 21:00:06"
+    }
+]
