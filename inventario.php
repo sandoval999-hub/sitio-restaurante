@@ -1,4 +1,142 @@
 <?php
+session_start();
+
+$PASSWORD_CORRECTA = "Comedor1";
+$error_login = "";
+
+if (isset($_POST['inventario_pass'])) {
+    if ($_POST['inventario_pass'] === $PASSWORD_CORRECTA) {
+        $_SESSION['auth_inventario'] = true;
+        header("Location: inventario.php");
+        exit;
+    } else {
+        $error_login = "Contraseña incorrecta. Inténtelo de nuevo.";
+    }
+}
+
+// LOGOUT LOGIC
+if (isset($_GET['logout'])) {
+    unset($_SESSION['auth_inventario']);
+    header("Location: inventario.php");
+    exit;
+}
+
+// SI NO ESTA AUTORIZADO, MOSTRAR LOGIN
+if (!isset($_SESSION['auth_inventario']) || $_SESSION['auth_inventario'] !== true) {
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Restringido - Inventario</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: #f7f3ed;
+            background-image: radial-gradient(#d4c8bc 1px, transparent 1px);
+            background-size: 20px 20px;
+            font-family: 'Outfit', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .login-box {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px rgba(74, 62, 53, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+        }
+        .login-box h2 {
+            color: #1a1218;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+        .login-box p {
+            color: #7a6e65;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        .login-box input {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border: 2px solid #e2d9cd;
+            border-radius: 0.5rem;
+            font-family: inherit;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+        .login-box input:focus {
+            border-color: #d6368b;
+            box-shadow: 0 0 0 3px rgba(214, 54, 139, 0.1);
+        }
+        .login-box button {
+            width: 100%;
+            padding: 0.85rem;
+            background: #d6368b;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .login-box button:hover {
+            background: #b52c74;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(214, 54, 139, 0.3);
+        }
+        .error-msg {
+            color: #e05555;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+        .btn-back {
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: #7a6e65;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .btn-back:hover {
+            color: #1a1218;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h2>🔒 Inventario</h2>
+        <p>Ingrese la contraseña para acceder</p>
+        <form method="POST">
+            <input type="password" name="inventario_pass" placeholder="Contraseña..." required autofocus>
+            <button type="submit">Entrar</button>
+        </form>
+        <?php if ($error_login): ?>
+            <div class="error-msg"><?= $error_login ?></div>
+        <?php endif; ?>
+        <a href="index.php" class="btn-back">← Volver al inicio</a>
+    </div>
+</body>
+</html>
+<?php
+    exit; // Detener la ejecución si no está logeado
+}
+
+// SI ESTA AUTORIZADO, CARGA EL RESTO DE LA PAGINA
 require_once __DIR__ . '/db_config.php';
 
 // Definir zona horaria
@@ -444,6 +582,98 @@ $ventas_por_tipo = $stmtTypesItems->fetchAll(PDO::FETCH_ASSOC);
         </table>
     </div>
 
+    <!-- Órdenes del Día con opción de Eliminar -->
+    <?php
+    // Obtener órdenes individuales del día
+    $stmtOrdenes = $pdo->prepare("SELECT * FROM ordenes WHERE order_date = ? ORDER BY id DESC");
+    $stmtOrdenes->execute([$filtro_fecha]);
+    $ordenes = $stmtOrdenes->fetchAll(PDO::FETCH_ASSOC);
+    ?>
+    <div class="data-section">
+        <div class="data-section__header">📋 Órdenes del Día (<?= count($ordenes) ?>)</div>
+        <div style="padding: 1rem;">
+            <?php if (empty($ordenes)): ?>
+                <div class="no-data">No hay órdenes registradas para esta fecha.</div>
+            <?php else: ?>
+                <?php foreach ($ordenes as $orden): ?>
+                <div class="order-card" id="orden-<?= $orden['id'] ?>">
+                    <div class="order-card__header">
+                        <span>
+                            <span class="order-card__num"><?= htmlspecialchars($orden['order_number']) ?></span>
+                            <span class="order-card__time"> — <?= htmlspecialchars($orden['order_time']) ?></span>
+                        </span>
+                        <span style="display:flex; align-items:center; gap:0.75rem;">
+                            <span class="order-card__total">$<?= number_format($orden['total'], 2) ?></span>
+                            <button class="btn-delete-order" onclick="eliminarOrden(<?= $orden['id'] ?>, '<?= htmlspecialchars($orden['order_number']) ?>', <?= $orden['total'] ?>)" title="Eliminar orden">🗑️</button>
+                        </span>
+                    </div>
+                    <div class="order-card__body">
+                        <div class="order-card__customer">
+                            👤 <?= htmlspecialchars($orden['customer_name']) ?>
+                            <?= $orden['customer_phone'] ? ' &nbsp;📱 ' . htmlspecialchars($orden['customer_phone']) : '' ?>
+                        </div>
+                    </div>
+                </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
+    </div>
+
   </main>
+
+  <style>
+    .btn-delete-order {
+        background: rgba(224, 85, 85, 0.15);
+        border: 1px solid rgba(224, 85, 85, 0.3);
+        color: #e05555;
+        padding: 0.3rem 0.6rem;
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        font-size: 0.85rem;
+        transition: all 0.2s;
+    }
+    .btn-delete-order:hover {
+        background: #e05555;
+        color: white;
+        transform: scale(1.05);
+    }
+    .order-card.deleting {
+        opacity: 0.4;
+        transform: scale(0.98);
+        transition: all 0.3s;
+    }
+  </style>
+
+  <script>
+  async function eliminarOrden(id, orderNum, total) {
+      if (!confirm(`¿Estás seguro de eliminar ${orderNum}?\nMonto: $${total.toFixed(2)}\n\nEsta acción restará el monto de los ingresos del día.`)) {
+          return;
+      }
+
+      const card = document.getElementById('orden-' + id);
+      if (card) card.classList.add('deleting');
+
+      try {
+          const response = await fetch('eliminar_orden.php', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ orden_id: id })
+          });
+
+          const data = await response.json();
+
+          if (data.success) {
+              // Reload page to update all stats
+              window.location.reload();
+          } else {
+              alert('Error: ' + (data.error || 'No se pudo eliminar'));
+              if (card) card.classList.remove('deleting');
+          }
+      } catch (err) {
+          alert('Error de conexión al eliminar la orden.');
+          if (card) card.classList.remove('deleting');
+      }
+  }
+  </script>
 </body>
 </html>

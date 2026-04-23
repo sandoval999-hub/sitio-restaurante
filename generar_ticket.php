@@ -120,34 +120,8 @@ if (file_exists($logFile)) {
 $existingOrders[] = $logEntry;
 file_put_contents($logFile, json_encode($existingOrders, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 
-// Insertar en la Base de Datos SQLite
-try {
-    // Insertar Orden
-    $stmt = $pdo->prepare("INSERT INTO ordenes (order_number, customer_name, customer_phone, subtotal, total, order_date, order_time) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->execute([$orderNumber, $customerName, $customerPhone, $subtotal, $total, $now->format('Y-m-d'), $time]);
-    $orden_id = $pdo->lastInsertId();
-
-    // Insertar Items
-    $stmtItem = $pdo->prepare("INSERT INTO orden_items (orden_id, item_id, item_name, emoji, price, qty, total, order_type, masa) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    
-    foreach ($processedItems as $item) {
-        $stmtItem->execute([
-            $orden_id,
-            $item['id'],
-            $item['name'],
-            $item['emoji'],
-            $item['price'],
-            $item['qty'],
-            $item['total'],
-            $item['orderType'],
-            $item['masa']
-        ]);
-    }
-} catch (PDOException $e) {
-    // Si falla la base de datos, el archivo JSON se guardó como respaldo.
-    // Opcionalmente podemos retornar el error de BD, pero para no interrumpir al usuario lo dejamos pasar.
-    // file_put_contents('db_error.log', $e->getMessage() . "\n", FILE_APPEND);
-}
+// NOTA: La orden se guarda en la BD solo cuando se imprime el ticket (ver guardar_orden.php)
+// Aquí solo se genera la respuesta del ticket sin guardar en BD.
 
 // Leer llevarNumber del frontend (si aplica)
 $llevarNumber = isset($data['llevarNumber']) ? $data['llevarNumber'] : null;

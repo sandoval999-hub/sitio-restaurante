@@ -3,6 +3,8 @@ $db_file = __DIR__ . '/pupuseria.db';
 try {
     $pdo = new PDO('sqlite:' . $db_file);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->exec('PRAGMA journal_mode=WAL');
+    $pdo->exec('PRAGMA synchronous=NORMAL');
 
     // Crear tablas si no existen
     $pdo->exec("

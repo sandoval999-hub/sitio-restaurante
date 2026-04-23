@@ -45,20 +45,24 @@ const MENU = {
     { id: 'm7', name: 'Canoas ', emoji: '🍌', price: 1.25, img: 'https://live.staticflickr.com/7336/10968270496_4be4a259a1_z.jpg' },
   ],
   bebidasFrias: [
+    { id: 'bf46', name: 'Jugo del Valle pequeño', emoji: '🧃', price: 0.40, sub: 'jugos y frescos', img: 'https://walmartsv.vtexassets.com/arquivos/ids/377942-800-450?v=638406922263900000&width=800&height=450&aspect=true' },
+    { id: 'bf47', name: 'Coca Lata', emoji: '🥫', price: 1.00, sub: 'gaseosas', img: 'https://media.istockphoto.com/id/458464735/es/foto/coca-cola.jpg?s=612x612&w=0&k=20&c=SnB7NqAiTxs3PQzWpSpwOiOncP1hbYHEP9zaDurvLwU=' },
+    { id: 'bf48', name: 'Coca Zero', emoji: '🥤', price: 1.00, sub: 'gaseosas', img: 'https://walmartsv.vtexassets.com/arquivos/ids/372501/Gaseosa-Coca-Cola-Sin-Az-car-Lata-354-ml-2-3746.jpg?v=638392773749800000' },
+    { id: 'bf12', name: 'Pepsi medium', emoji: '🥤', price: 0.75, sub: 'gaseosas', img: 'img/pepsi-medium.jpg' },
+    { id: 'bf49', name: 'Pepsi Black', emoji: '🥤', price: 0.75, sub: 'gaseosas', img: 'data:image/jpeg;base64,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' },
     { id: 'bf1', name: 'Fresco Natural', emoji: '🍹', price: 0.50, sub: 'jugos y frescos' },
     { id: 'bf2', name: 'Fresco Natural Doble', emoji: '🍹', price: 1.00, sub: 'jugos y frescos' },
-    { id: 'bf7', name: 'Jugo de lata Petit', emoji: '🥫', price: 0.50, sub: 'jugos y frescos', img: "https://th.bing.com/th/id/OIP.1mwlG4SAuSeMtuGfzKtTkwHaJ4?w=150&h=199&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
-    { id: 'bf8', name: 'Frutado pequeño', emoji: '🧃', price: 0.50, sub: 'jugos y frescos' },
+    { id: 'bf7', name: 'Jugo de lata Petit', emoji: '🥫', price: 0.75, sub: 'jugos y frescos', img: "https://th.bing.com/th/id/OIP.1mwlG4SAuSeMtuGfzKtTkwHaJ4?w=150&h=199&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
+    { id: 'bf8', name: 'Frutado pequeño', emoji: '🧃', price: 0.40, sub: 'jugos y frescos' },
     {
       id: 'bf9', name: 'Jugo del Valle normal', emoji: '🧃', price: 0.75, sub: 'jugos y frescos', img: "https://walmartsv.vtexassets.com/arquivos/ids/486812-500-auto?v=638572752134100000&width=500&height=auto&aspect=true"
     },
     { id: 'bf3', name: 'Gaseosa normal', emoji: '🥤', price: 0.75, sub: 'gaseosas', img: 'img/gaseosa-normal.jpg' },
-    { id: 'bf4', name: 'Gaseosa lata', emoji: '🥫', price: 1.00, sub: 'gaseosas', img: 'img/gaseosa-lata.jpg' },
-    { id: 'bf10', name: 'Coca-Cola chiquita', emoji: '🥤', price: 0.75, sub: 'gaseosas', img: 'img/coca-cola-chiquita.jpg' },
-    { id: 'bf11', name: 'Té Lipton normal', emoji: '🧊', price: 0.75, sub: 'jugos y frescos', img: 'https://th.bing.com/th/id/OIP.2MUMB9uXqNCHWCJtuQMIJQHaHa' },
-    { id: 'bf12', name: 'Pepsi medium', emoji: '🥤', price: 1.00, sub: 'gaseosas', img: 'img/pepsi-medium.jpg' },
-    { id: 'bf13', name: 'Mirinda medium', emoji: '🥤', price: 1.00, sub: 'gaseosas', img: 'img/mirinda-medium.jpg' },
-    { id: 'bf14', name: '7up medium', emoji: '🥤', price: 1.00, sub: 'gaseosas', img: 'img/7up-medium.jpg' },
+    { id: 'bf4', name: 'Gaseosa lata', emoji: '🥫', price: 0.75, sub: 'gaseosas', img: 'img/gaseosa-lata.jpg' },
+    { id: 'bf10', name: 'Coca-Cola chiquita', emoji: '🥤', price: 0.60, sub: 'gaseosas', img: 'img/coca-cola-chiquita.jpg' },
+    { id: 'bf11', name: 'Té Lipton normal', emoji: '🧊', price: 1.00, sub: 'jugos y frescos', img: 'https://th.bing.com/th/id/OIP.2MUMB9uXqNCHWCJtuQMIJQHaHa' },
+    { id: 'bf13', name: 'Mirinda medium', emoji: '🥤', price: 0.75, sub: 'gaseosas', img: 'img/mirinda-medium.jpg' },
+    { id: 'bf14', name: '7up medium', emoji: '🥤', price: 0.75, sub: 'gaseosas', img: 'img/7up-medium.jpg' },
     { id: 'bf15', name: 'Té Lipton 1.5 lt', emoji: '🧊', price: 1.50, sub: 'jugos y frescos', img: 'https://tse3.mm.bing.net/th/id/OIP.4XE9egjRlDWCSwMA50TDnwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3' },
     { id: 'bf16', name: 'Té Lipton 2.5 lt', emoji: '🧊', price: 2.50, sub: 'jugos y frescos', img: 'https://tse3.mm.bing.net/th/id/OIP.RZA4kJlCOc9au434egG2qgHaHa' },
     { id: 'bf17', name: 'Pepsi 1.5 lt', emoji: '🥤', price: 1.50, sub: 'gaseosas', img: 'https://th.bing.com/th/id/OIP.EjV5i1mmBGn_aFiUQv7cXgHaHa' },
@@ -66,40 +70,46 @@ const MENU = {
     { id: 'bf19', name: 'Coca-Cola 1.5 lt', emoji: '🥤', price: 1.50, sub: 'gaseosas', img: 'https://www.bing.com/th/id/OIP.EJnLfC1GqNP6TuE9UZ62hQHaHa?w=202&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2' },
     { id: 'bf20', name: 'Coca-Cola 2.5 lt', emoji: '🥤', price: 2.50, sub: 'gaseosas', img: 'https://www.bing.com/th/id/OIP.zYLd_lkAkEMTujL8bE97TgHaHa' },
     { id: 'bf5', name: 'Agua Cristal', emoji: '💧', price: 0.50, sub: 'agua', img: "https://th.bing.com/th/id/OIP.aL5LwSbiCsHNHehDKEQ2ngHaHa?w=181&h=181&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3", },
-    { id: 'bf23', name: 'Agua mineral', emoji: '🪧', price: 0.75, sub: 'agua', img: "https://tse2.mm.bing.net/th/id/OIP.p0_AL5NQOMiTlXTSbllB1AHaKg?pid=ImgDet&w=178&h=252&c=7&dpr=1,5&o=7&rm=3" },
-    { id: 'bf24', name: 'Agua 1 lt', emoji: '💧', price: 1.00, sub: 'agua', img: "https://tse2.mm.bing.net/th/id/OIP.p0_AL5NQOMiTlXTSbllB1AHaKg?pid=ImgDet&w=178&h=252&c=7&dpr=1,5&o=7&rm=3" },
-    { id: 'bf6', name: 'Pilsener', emoji: '🍺', price: 1.00, sub: 'cervezas', img: "https://tse2.mm.bing.net/th/id/OIP.4eEPeeDxFMU_0kKWZhN-kgHaHa?pid=ImgDet&w=178&h=178&c=7&dpr=1,5&o=7&rm=3" },
+    { id: 'bf23', name: 'Agua mineral', emoji: '🥫', price: 0.75, sub: 'agua' },
+    { id: 'bf24', name: 'Agua 1 lt', emoji: '🥤', price: 1.00, sub: 'agua' },
+    { id: 'bf6', name: 'Pilsener', emoji: '🍺', price: 1.25, sub: 'cervezas', img: "https://tse2.mm.bing.net/th/id/OIP.4eEPeeDxFMU_0kKWZhN-kgHaHa?pid=ImgDet&w=178&h=178&c=7&dpr=1,5&o=7&rm=3" },
     { id: 'bf21', name: 'Pilsener Lata', emoji: '🥫', price: 1.25, sub: 'cervezas', img: "https://th.bing.com/th/id/OIP.qTi0mrMt4IoCyQRLqZCldQHaHY?w=203&h=202&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
     { id: 'bf22', name: 'Salutary Lata', emoji: '🥫', price: 0.75, sub: 'gaseosas', img: 'https://images.deliveryhero.io/image/pedidosya/products/642c746470d9b0f412578ed5.jpg' },
     { id: 'bf25', name: 'Pepsi o Mirinda plastica', emoji: '🥤', price: 0.75, sub: 'gaseosas', img: "https://www.bing.com/th/id/OIP.TRayWmSw-hq1pW2ygTT0gAHaK5?w=160&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2", },
     { id: 'bf26', name: 'Salutary plastica', emoji: '🥤', price: 0.75, sub: 'gaseosas', img: "https://lacolonia.vtexassets.com/arquivos/ids/248847-800-auto?v=638671089334830000&width=800&height=auto&aspect=true", },
-    { id: 'bf27', name: 'Pepsi plastica pequeña', emoji: '🥤', price: 0.75, sub: 'gaseosas', img: "https://res.cloudinary.com/riqra/image/upload/v1678811229/sellers/13/ebdvbbx1vfinzeslgk26.jpg", },
+    { id: 'bf50', name: 'Salutary pequeña', emoji: '🥤', price: 0.60, sub: 'gaseosas' },
+    { id: 'bf51', name: 'Salutary 1.5 litros', emoji: '🥤', price: 1.50, sub: 'gaseosas' },
+    { id: 'bf27', name: 'Pepsi plastica pequeña', emoji: '🥤', price: 0.60, sub: 'gaseosas', img: "https://res.cloudinary.com/riqra/image/upload/v1678811229/sellers/13/ebdvbbx1vfinzeslgk26.jpg", },
     { id: 'bf28', name: 'Pepsi Lata', emoji: '🥤', price: 0.75, sub: 'gaseosas', img: 'https://www.bing.com/th/id/OIP.2gg274m6dp3ffTXbFILF7AHaHa?w=212&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2', },
     { id: 'bf29', name: 'Jugo de la Granja', emoji: '🧃', price: 0.75, sub: 'jugos y frescos', img: "https://latinfoodsatyourdoor.com/cdn/shop/files/jugo-de-naranja-de-la-granja.png?v=1747920030&width=1500", },
     { id: 'bf30', name: 'Jugo Tampico', emoji: '🧃', price: 0.75, sub: 'jugos y frescos', img: "https://tse2.mm.bing.net/th/id/OIP.p0_AL5NQOMiTlXTSbllB1AHaKg?pid=ImgDet&w=178&h=252&c=7&dpr=1,5&o=7&rm=3" },
-    { id: 'bf31', name: 'Chocolatina ¼', emoji: '🪶', price: 0.50, sub: 'jugos y frescos', img: "https://th.bing.com/th/id/OIP.rN3M9hA2NnZn_j_WGI5qUgHaHa?w=191&h=191&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3", },
-    { id: 'bf32', name: 'Chocolatina ½', emoji: '🪶', price: 0.75, sub: 'jugos y frescos', img: "https://tse1.mm.bing.net/th/id/OIP.xQLiuaDYjqMbl6U4YHtt8gHaHa?rs=1&pid=ImgDetMain&o=7&rm=3", },
-    { id: 'bf33', name: 'Powerade azul o rojo normal', emoji: '⚡', price: 1.00, sub: 'energéticas', img: "https://tse1.mm.bing.net/th/id/OIP.kOFYicqd8pcVAvTSBoSR0wHaGf?pid=ImgDet&w=178&h=156&c=7&dpr=1,5&o=7&rm=3" },
-    { id: 'bf34', name: 'Powerade azul o rojo grande', emoji: '⚡', price: 1.50, sub: 'energéticas', img: "https://www.aperitissimo.fr/wp-content/uploads/2023/06/powerade-1024x576.png", },
-    { id: 'bf35', name: 'Gatorade', emoji: '⚡', price: 1.00, sub: 'energéticas', img: "https://th.bing.com/th/id/OIP.Fn5kDtpgaGHqziRBinGS_gHaHa?w=212&h=212&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
+    { id: 'bf31', name: 'Chocolatina ¼', emoji: '🪶', price: 0.75, sub: 'jugos y frescos', img: "https://th.bing.com/th/id/OIP.rN3M9hA2NnZn_j_WGI5qUgHaHa?w=191&h=191&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3", },
+    { id: 'bf32', name: 'Chocolatina ½', emoji: '🪶', price: 1.00, sub: 'jugos y frescos', img: "https://tse1.mm.bing.net/th/id/OIP.xQLiuaDYjqMbl6U4YHtt8gHaHa?rs=1&pid=ImgDetMain&o=7&rm=3", },
+    { id: 'bf33', name: 'Powerade azul o rojo normal', emoji: '⚡', price: 0.75, sub: 'energéticas', img: "https://tse1.mm.bing.net/th/id/OIP.kOFYicqd8pcVAvTSBoSR0wHaGf?pid=ImgDet&w=178&h=156&c=7&dpr=1,5&o=7&rm=3" },
+    { id: 'bf34', name: 'Powerade azul o rojo grande', emoji: '⚡', price: 1.00, sub: 'energéticas', img: "https://www.aperitissimo.fr/wp-content/uploads/2023/06/powerade-1024x576.png", },
+    { id: 'bf35', name: 'Gatorade', emoji: '⚡', price: 1.25, sub: 'energéticas', img: "https://th.bing.com/th/id/OIP.Fn5kDtpgaGHqziRBinGS_gHaHa?w=212&h=212&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
     { id: 'bf36', name: 'Raptor', emoji: '🔋', price: 1.00, sub: 'energéticas', img: "https://th.bing.com/th/id/OIP.LWUVimpPTHEeW1G9mHBhAwHaHa?w=176&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
-    { id: 'bf37', name: 'Monster', emoji: '🔋', price: 2.00, sub: 'energéticas', img: "https://th.bing.com/th/id/OIP.qBLWsqBIw9a2u78d_6546gHaHa?w=218&h=218&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
+    { id: 'bf37', name: 'Monster', emoji: '🔋', price: 2.50, sub: 'energéticas', img: "https://th.bing.com/th/id/OIP.qBLWsqBIw9a2u78d_6546gHaHa?w=218&h=218&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
     { id: 'bf38', name: 'Be Light', emoji: '💧', price: 0.75, sub: 'energéticas', img: "https://th.bing.com/th/id/OIP.Vl-F8GMDqLmGhvwzMj99eAHaHa?w=172&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
     { id: 'bf39', name: 'Golden', emoji: '🍺', price: 1.25, sub: 'cervezas', img: "https://th.bing.com/th/id/OIP.sw8ZqN4yg4P1q6Wsfp6nkQHaHa?w=163&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
-    { id: 'bf40', name: 'Corona', emoji: '🍺', price: 2.00, sub: 'cervezas', img: "https://th.bing.com/th/id/OIP.Ntmj6jczeQzPrE0mYwFDvwHaHa?w=202&h=202&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
-    { id: 'bf41', name: 'Pilsener grande', emoji: '🍺', price: 1.75, sub: 'cervezas', img: "https://th.bing.com/th/id/OIP.hh0TXCpGb1KpD2_xKsn8jAAAAA?w=115&h=186&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
-    { id: 'bf42', name: 'Regia grande', emoji: '🍺', price: 1.75, sub: 'cervezas', img: "https://tse4.mm.bing.net/th/id/OIP.jRDtQkH9yzxO8r71mwDgWwHaSC?pid=ImgDet&w=144&h=350&c=7&dpr=1,5&o=7&rm=3" },
-    { id: 'bf43', name: 'Suprema', emoji: '🍺', price: 1.50, sub: 'cervezas', img: "https://tse3.mm.bing.net/th/id/OIP.lnfg0oJ3v-WkqGFMFW51qQAAAA?rs=1&pid=ImgDetMain&o=7&rm=3" },
+    { id: 'bf40', name: 'Corona', emoji: '🍺', price: 1.50, sub: 'cervezas', img: "https://th.bing.com/th/id/OIP.Ntmj6jczeQzPrE0mYwFDvwHaHa?w=202&h=202&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
+    { id: 'bf41', name: 'Pilsener grande', emoji: '🍺', price: 2.25, sub: 'cervezas', img: "https://th.bing.com/th/id/OIP.hh0TXCpGb1KpD2_xKsn8jAAAAA?w=115&h=186&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
+    { id: 'bf42', name: 'Regia grande', emoji: '🍺', price: 2.25, sub: 'cervezas', img: "https://tse4.mm.bing.net/th/id/OIP.jRDtQkH9yzxO8r71mwDgWwHaSC?pid=ImgDet&w=144&h=350&c=7&dpr=1,5&o=7&rm=3" },
+    { id: 'bf43', name: 'Suprema', emoji: '🍺', price: 1.25, sub: 'cervezas', img: "https://tse3.mm.bing.net/th/id/OIP.lnfg0oJ3v-WkqGFMFW51qQAAAA?rs=1&pid=ImgDetMain&o=7&rm=3" },
     { id: 'bf44', name: 'Coca Cola 3 lt', emoji: '🥤', price: 3.00, sub: 'gaseosas', img: "https://www.bing.com/th/id/OIP.PL876p8XUtZezqUWRXNSdwHaHa?w=199&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2", },
     { id: 'bf45', name: 'Frutado Normal', emoji: '🥤', price: 0.75, sub: 'jugos y frescos', img: "https://th.bing.com/th/id/OIP.gDMALHNSBuy1epqx6OzLhQHaFj?w=220&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
-
+    { id: 'bf50', name: 'Grapette Lata', emoji: '🥫', price: 0.75, sub: 'gaseosas' },
+    { id: 'bf51', name: 'Grapette Botella', emoji: '🥤', price: 0.60, sub: 'gaseosas' },
+    { id: 'bf52', name: 'Jugo del Valle Litro', emoji: '🧃', price: 1.50, sub: 'jugos y frescos' },
+    { id: 'bf53', name: 'Jugo del Valle 2 Litros', emoji: '🧃', price: 1.75, sub: 'jugos y frescos' },
+    { id: 'bf54', name: 'Red Bull Lata', emoji: '🔋', price: 1.25, sub: 'energéticas' },
   ],
   bebidasCalientes: [
     { id: 'bc1', name: 'Café', emoji: '🫖', price: 0.50 },
     { id: 'bc2', name: 'Café con leche', emoji: '🫖,🥛', price: 0.75 },
     { id: 'bc3', name: 'Chocolate', emoji: '☕', price: 0.75 },
     { id: 'bc4', name: 'Chocolate con leche', emoji: '☕,🥛', price: 0.75 },
-    { id: 'bc5', name: 'Leche Caliente', emoji: '🍵', price: 0.75 },
+    { id: 'bc5', name: 'Leche Caliente', emoji: '🍵', price: 0.80 },
     { id: 'bc6', name: 'Cappuccino', emoji: '☕', price: 1.00 },
     { id: 'bc7', name: 'Café con cremora', emoji: '🫖', price: 0.75 },
   ]
@@ -238,20 +248,37 @@ function updateSectionHeader() {
 function renderMenu() {
   let items = MENU[activeCategory] || [];
 
+  // Toggle Volver button visibility based on whether an order type is selected
+  const btnVolver = document.getElementById('btnVolver');
+  if (btnVolver) {
+    btnVolver.style.display = activeOrderType ? 'inline-block' : 'none';
+  }
+
+  // Elements to toggle
+  const catTabs = document.querySelector('.category-tabs');
+  const secHeader = document.querySelector('.section-header');
+
   // If no order type selected, show big order type selection screen
   if (!activeOrderType) {
+    if (catTabs) catTabs.style.display = 'none';
+    if (secHeader) secHeader.style.display = 'none';
     menuGrid.style.display = 'none';
     orderTypeSelect.style.display = 'flex';
     orderTypeSelect.innerHTML = `
       <div class="order-type-select__header">
-        <span class="order-type-select__icon">🛎️</span>
+        <div class="plate-animation">
+          <div class="pupusa-fall pupusa-1">🫓</div>
+          <div class="pupusa-fall pupusa-2">🫓</div>
+          <div class="pupusa-fall pupusa-3">🫓</div>
+          <div class="plate-base">🍽️</div>
+        </div>
         <h2 class="order-type-select__title">¿Cómo será tu orden?</h2>
         <p class="order-type-select__subtitle">Selecciona el tipo de orden para comenzar</p>
       </div>
       <div class="order-type-select__buttons">
-        <button class="order-type__btn" data-type="comer-aqui">🍽️ Comer Aquí</button>
-        <button class="order-type__btn" data-type="para-llevar">📦 Para Llevar</button>
-        <button class="order-type__btn" data-type="domicilio">🛵 Domicilio</button>
+        <button class="order-type__btn" data-type="comer-aqui"><span class="emoji-animate emoji-plates">🍽️</span> Comer Aquí</button>
+        <button class="order-type__btn" data-type="para-llevar"><span class="emoji-animate emoji-box">📦</span> Para Llevar</button>
+        <button class="order-type__btn" data-type="domicilio"><span class="emoji-animate emoji-moto">🛵</span> Domicilio</button>
       </div>
     `;
     // Add click listeners for big buttons
@@ -263,7 +290,7 @@ function renderMenu() {
         document.querySelectorAll('.order-type__btn').forEach(b => b.classList.remove('active'));
         const sidebarBtn = document.getElementById({ 'comer-aqui': 'typeAqui', 'para-llevar': 'typeLlevar', 'domicilio': 'typeDomicilio' }[btn.dataset.type]);
         if (sidebarBtn) sidebarBtn.classList.add('active');
-        
+
         // Hide global order-type toggle in sidebar if not Comer Aquí
         const orderTypeHeader = document.querySelector('.order-type');
         if (orderTypeHeader) {
@@ -279,6 +306,8 @@ function renderMenu() {
   }
 
   // Order type is selected, show menu grid
+  if (catTabs) catTabs.style.display = 'flex';
+  if (secHeader) secHeader.style.display = 'flex';
   orderTypeSelect.style.display = 'none';
   menuGrid.style.display = 'grid';
 
@@ -321,26 +350,40 @@ function renderMenu() {
     // For pupusas, check both dough types
     const maizKey = `${item.id}__${activeOrderType.replace(/\s/g, '_')}__maiz`;
     const arrozKey = `${item.id}__${activeOrderType.replace(/\s/g, '_')}__arroz`;
-    const hasAnyOrder = isPupusaCategory ? (!!order[maizKey] || !!order[arrozKey]) : !!order[typeKey];
-    const activeEntry = isPupusaCategory ? (order[maizKey] || order[arrozKey]) : order[typeKey];
+    const maizQty = order[maizKey] ? order[maizKey].qty : 0;
+    const arrozQty = order[arrozKey] ? order[arrozKey].qty : 0;
+    const combinedQty = maizQty + arrozQty;
+    const hasAnyOrder = isPupusaCategory ? combinedQty > 0 : !!order[typeKey];
     const isActiveForType = hasAnyOrder;
     return `
       <div class="menu-item ${isActiveForType ? 'active' : ''}" data-id="${item.id}" id="menu-${item.id}">
-        ${item.img ? `<img class="menu-item__img" src="${item.img}" alt="${item.name}">` : `<span class="menu-item__emoji">${item.emoji}</span>`}
+        ${item.img ? `<img class="menu-item__img" src="${item.img}" alt="${item.name}" loading="lazy">` : `<span class="menu-item__emoji">${item.emoji}</span>`}
         <span class="menu-item__name">${item.name}</span>
         <span class="menu-item__price">$${item.price.toFixed(2)}</span>
-        <div class="qty-selector ${isActiveForType ? 'visible' : ''}" id="qty-${item.id}">
-          <button class="qty-btn remove" onclick="event.stopPropagation(); changeQty('${item.id}', -1)">−</button>
-          <span class="qty-display" id="qtyVal-${item.id}">${isActiveForType ? activeEntry.qty : 0}</span>
-          <button class="qty-btn add" onclick="event.stopPropagation(); changeQty('${item.id}', 1)">+</button>
-        </div>
         ${isPupusaCategory ? `
-        <div class="dough-popup" id="dough-${item.id}">
-          <span class="dough-popup__title">Tipo de masa:</span>
-          <button class="dough-btn" data-id="${item.id}" data-masa="maiz">🌽 Maíz</button>
-          <button class="dough-btn" data-id="${item.id}" data-masa="arroz">🍚 Arroz</button>
-        </div>
-        ` : ''}
+          ${hasAnyOrder ? `<div class="qty-badge-pill">${combinedQty}</div>` : ''}
+          <div class="dough-popup" id="dough-${item.id}">
+            <span class="dough-popup__title">Tipo de masa:</span>
+            <div class="dough-row">
+              <button class="qty-btn remove dough-qty-btn" data-id="${item.id}" data-masa="maiz" data-action="remove" ${maizQty === 0 ? 'disabled' : ''}>−</button>
+              <span class="dough-label maiz-label">🌽 Maíz</span>
+              <span class="dough-qty-val" id="dqty-maiz-${item.id}">${maizQty}</span>
+              <button class="qty-btn add dough-qty-btn" data-id="${item.id}" data-masa="maiz" data-action="add">+</button>
+            </div>
+            <div class="dough-row">
+              <button class="qty-btn remove dough-qty-btn" data-id="${item.id}" data-masa="arroz" data-action="remove" ${arrozQty === 0 ? 'disabled' : ''}>−</button>
+              <span class="dough-label arroz-label">🍚 Arroz</span>
+              <span class="dough-qty-val" id="dqty-arroz-${item.id}">${arrozQty}</span>
+              <button class="qty-btn add dough-qty-btn" data-id="${item.id}" data-masa="arroz" data-action="add">+</button>
+            </div>
+          </div>
+        ` : `
+          <div class="qty-selector ${isActiveForType ? 'visible' : ''}" id="qty-${item.id}">
+            <button class="qty-btn remove" onclick="event.stopPropagation(); changeQty('${item.id}', -1)">−</button>
+            <span class="qty-display" id="qtyVal-${item.id}">${hasAnyOrder ? order[typeKey].qty : 0}</span>
+            <button class="qty-btn add" onclick="event.stopPropagation(); changeQty('${item.id}', 1)">+</button>
+          </div>
+        `}
       </div>
     `;
   }).join('');
@@ -363,32 +406,15 @@ function renderMenu() {
   // Add click listeners
   document.querySelectorAll('.menu-item').forEach(el => {
     el.addEventListener('click', (e) => {
-      // Don't trigger if clicking on qty buttons or dough buttons
-      if (e.target.closest('.qty-btn') || e.target.closest('.dough-btn')) return;
+      // Don't trigger if clicking on qty buttons or dough qty buttons
+      if (e.target.closest('.qty-btn') || e.target.closest('.dough-qty-btn')) return;
 
       const id = el.dataset.id;
       const item = findItem(id);
       if (!item) return;
 
       if (isPupusaCategory) {
-        const maizKey = `${id}__${activeOrderType.replace(/\s/g, '_')}__maiz`;
-        const arrozKey = `${id}__${activeOrderType.replace(/\s/g, '_')}__arroz`;
-
-        // If already ordered with a dough type, just add +1 directly
-        if (order[maizKey]) {
-          order[maizKey].qty += 1;
-          renderMenu();
-          updateOrderUI();
-          return;
-        }
-        if (order[arrozKey]) {
-          order[arrozKey].qty += 1;
-          renderMenu();
-          updateOrderUI();
-          return;
-        }
-
-        // First time: show dough type popup
+        // Always show dough popup so user can pick maíz, arroz, or both
         const popup = document.getElementById(`dough-${id}`);
         // Hide all other popups first
         document.querySelectorAll('.dough-popup.visible').forEach(p => {
@@ -401,33 +427,94 @@ function renderMenu() {
           order[key] = { ...item, qty: 1, orderType: activeOrderType };
           showToast(`✅ ${item.name} (${activeOrderType})`);
         }
-        renderMenu();
+
+        // In-place DOM update instead of renderMenu()
+        const qtyValEl = document.getElementById(`qtyVal-${id}`);
+        const qtySelectorEl = document.getElementById(`qty-${id}`);
+        const cardEl = document.getElementById(`menu-${id}`);
+
+        if (qtyValEl) qtyValEl.textContent = order[key].qty;
+        if (qtySelectorEl) qtySelectorEl.classList.add('visible');
+        if (cardEl) cardEl.classList.add('active');
+
         updateOrderUI();
       }
     });
   });
 
-  // Dough type button click listeners
-  document.querySelectorAll('.dough-btn').forEach(btn => {
+  // Dough type +/- button click listeners (in-place update, no screen flash)
+  document.querySelectorAll('.dough-qty-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
       const id = btn.dataset.id;
       const masa = btn.dataset.masa;
+      const action = btn.dataset.action;
       const item = findItem(id);
       if (!item) return;
 
       const key = `${id}__${activeOrderType.replace(/\s/g, '_')}__${masa}`;
-      if (!order[key]) {
-        order[key] = { ...item, qty: 1, orderType: activeOrderType, masa: masa };
-        const masaLabel = masa === 'maiz' ? '🌽 Maíz' : '🍚 Arroz';
-        showToast(`✅ ${item.name} (${masaLabel}) (${activeOrderType})`);
-      } else {
-        order[key].qty += 1;
+      const masaLabel = masa === 'maiz' ? '🌽 Maíz' : '🍚 Arroz';
+
+      if (action === 'add') {
+        if (!order[key]) {
+          order[key] = { ...item, qty: 1, orderType: activeOrderType, masa: masa };
+          showToast(`✅ ${item.name} (${masaLabel})`);
+        } else {
+          order[key].qty += 1;
+        }
+      } else if (action === 'remove') {
+        if (order[key]) {
+          order[key].qty -= 1;
+          if (order[key].qty <= 0) {
+            delete order[key];
+            showToast(`🗑️ ${item.name} (${masaLabel}) eliminada`);
+          }
+        }
       }
 
-      // Hide popup
-      document.getElementById(`dough-${id}`).classList.remove('visible');
-      renderMenu();
+      // In-place DOM update (no renderMenu = no screen flash)
+      const maizKey = `${id}__${activeOrderType.replace(/\s/g, '_')}__maiz`;
+      const arrozKey = `${id}__${activeOrderType.replace(/\s/g, '_')}__arroz`;
+      const maizQty = order[maizKey] ? order[maizKey].qty : 0;
+      const arrozQty = order[arrozKey] ? order[arrozKey].qty : 0;
+      const combinedQty = maizQty + arrozQty;
+
+      // Update qty numbers in popup
+      const maizQtyEl = document.getElementById(`dqty-maiz-${id}`);
+      const arrozQtyEl = document.getElementById(`dqty-arroz-${id}`);
+      if (maizQtyEl) maizQtyEl.textContent = maizQty;
+      if (arrozQtyEl) arrozQtyEl.textContent = arrozQty;
+
+      // Update disabled state of minus buttons
+      const popup = document.getElementById(`dough-${id}`);
+      if (popup) {
+        const maizRm = popup.querySelector('[data-masa="maiz"][data-action="remove"]');
+        const arrozRm = popup.querySelector('[data-masa="arroz"][data-action="remove"]');
+        if (maizRm) maizRm.disabled = maizQty === 0;
+        if (arrozRm) arrozRm.disabled = arrozQty === 0;
+      }
+
+      // Update badge pill on card
+      const card = document.getElementById(`menu-${id}`);
+      if (card) {
+        let pill = card.querySelector('.qty-badge-pill');
+        if (combinedQty > 0) {
+          if (pill) {
+            pill.textContent = combinedQty;
+          } else {
+            pill = document.createElement('div');
+            pill.className = 'qty-badge-pill';
+            pill.textContent = combinedQty;
+            card.appendChild(pill);
+          }
+          card.classList.add('active');
+        } else {
+          if (pill) pill.remove();
+          card.classList.remove('active');
+        }
+      }
+
+      // Update order panel only (right side)
       updateOrderUI();
     });
   });
@@ -487,8 +574,24 @@ function changeQty(id, delta) {
         showToast(`🗑️ ${name} eliminada`);
       }
     }
+
+    // In-place DOM update for non-pupusas (no screen flash)
+    const qtyValEl = document.getElementById(`qtyVal-${id}`);
+    const qtySelectorEl = document.getElementById(`qty-${id}`);
+    const cardEl = document.getElementById(`menu-${id}`);
+    const currentQty = order[baseKey] ? order[baseKey].qty : 0;
+
+    if (qtyValEl) qtyValEl.textContent = currentQty;
+
+    if (currentQty > 0) {
+      if (qtySelectorEl) qtySelectorEl.classList.add('visible');
+      if (cardEl) cardEl.classList.add('active');
+    } else {
+      if (qtySelectorEl) qtySelectorEl.classList.remove('visible');
+      if (cardEl) cardEl.classList.remove('active');
+    }
   }
-  renderMenu();
+
   updateOrderUI();
 }
 
@@ -597,7 +700,7 @@ function showOrderDetails() {
   `;
 
   if (usedTypes.length > 1) {
-    html += `<div class="ticket__order-type ticket__order-type--multi">🔀 ORDEN MIXTA</div>`;
+    // Show each type header directly, no ORDEN MIXTA banner
   } else {
     html += `<div class="ticket__order-type">${TYPE_EMOJIS[usedTypes[0]] || ''} ${usedTypes[0]}</div>`;
   }
@@ -608,38 +711,17 @@ function showOrderDetails() {
       html += `<div class="ticket__type-header">${TYPE_EMOJIS[type] || ''} ${type.toUpperCase()}</div>`;
     }
 
-    const tradicionales = groupItems.filter(i => i.id.startsWith('t'));
-    const especiales = groupItems.filter(i => i.id.startsWith('e'));
-    const personalizadas = groupItems.filter(i => i.id.startsWith('custom_') || (!i.id.startsWith('t') && !i.id.startsWith('e') && !i.id.startsWith('m') && !i.id.startsWith('bf') && !i.id.startsWith('bc')));
-    const tamalesYMas = groupItems.filter(i => i.id.startsWith('m'));
-    const bebidasFrias = groupItems.filter(i => i.id.startsWith('bf'));
-    const bebidasCalientes = groupItems.filter(i => i.id.startsWith('bc'));
-
-    const sections = [
-      { items: tradicionales, icon: '🫓', label: 'Tradicionales' },
-      { items: especiales, icon: '⭐', label: 'Especiales' },
-      { items: personalizadas, icon: '✏️', label: 'Personalizadas' },
-      { items: tamalesYMas, icon: '🫔', label: 'Tamales y Más' },
-      { items: bebidasFrias, icon: '�', label: 'Bebidas Frías' },
-      { items: bebidasCalientes, icon: '☕', label: 'Bebidas Calientes' },
-    ];
-
-    for (const section of sections) {
-      if (section.items.length > 0) {
-        html += `
-          <div class="ticket__section-title">${section.icon} ${section.label}</div>
-          <div class="ticket__items">
-            ${section.items.map(item => `
-              <div class="ticket__item">
-                <span class="ticket__item-name">${item.emoji} ${item.name}${item.masa ? ` (${item.masa === 'maiz' ? 'Maíz' : 'Arroz'})` : ''}</span>
-                <span class="ticket__item-qty">x${item.qty}</span>
-                <span class="ticket__item-price">$${(item.price * item.qty).toFixed(2)}</span>
-              </div>
-            `).join('')}
+    html += `
+      <div class="ticket__items">
+        ${groupItems.map(item => `
+          <div class="ticket__item">
+            <span class="ticket__item-qty" style="font-size: 1.4em; font-weight: 900; min-width: 42px; display: inline-block;">x${item.qty}</span>
+            <span class="ticket__item-name" style="font-size: 1.15em; font-weight: bold;">${item.name}${item.masa ? ` (${item.masa === 'maiz' ? 'Maíz' : 'Arroz'})` : ''}</span>
+            <span class="ticket__item-price" style="font-size: 1.15em;">$${(item.price * item.qty).toFixed(2)}</span>
           </div>
-        `;
-      }
-    }
+        `).join('')}
+      </div>
+    `;
 
     if (usedTypes.length > 1) {
       html += `<hr class="ticket__divider ticket__divider--light">`;
@@ -680,16 +762,7 @@ function changeQtyByKey(key, delta) {
   updateOrderUI();
 }
 
-// === Sequential Order Number (1-100, cycles) ===
-function getNextOrderNumber() {
-  let current = parseInt(localStorage.getItem('orderCounter') || '0', 10);
-  current = current + 1;
-  if (current > 100) current = 1;
-  localStorage.setItem('orderCounter', String(current));
-  return current;
-}
-
-// === Sequential "Para Llevar" List Number (1-100, cycles) ===
+// === Sequential "Para Llevar" Order Number (1-100, cycles) ===
 function getNextLlevarNumber() {
   let current = parseInt(localStorage.getItem('llevarCounter') || '0', 10);
   current = current + 1;
@@ -719,14 +792,13 @@ async function generateTicket() {
   btnTicket.innerHTML = '⏳ Generando...';
 
   try {
-    const seqNumber = getNextOrderNumber();
-    // If order is Para Llevar, assign a llevar list number
+    // Only Para Llevar gets a sequential order number (1-100)
     const isLlevar = activeOrderType === 'Para Llevar';
     const llevarNum = isLlevar ? getNextLlevarNumber() : null;
     const response = await fetch('generar_ticket.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ items: entries, customerName, customerPhone, customerHora, orderNumber: seqNumber, llevarNumber: llevarNum })
+      body: JSON.stringify({ items: entries, customerName, customerPhone, customerHora, llevarNumber: llevarNum })
     });
 
     const data = await response.json();
@@ -751,15 +823,13 @@ async function generateTicket() {
 // === Fallback Local Ticket Generation ===
 function generateTicketLocal(entries, customerName, customerPhone) {
   const subtotal = entries.reduce((sum, item) => sum + (item.price * item.qty), 0);
-  const seqNum = getNextOrderNumber();
-  const orderNum = 'Orden #' + seqNum;
   const now = new Date();
+  // Only Para Llevar gets a sequential order number (1-100)
   const isLlevar = activeOrderType === 'Para Llevar';
   const llevarNum = isLlevar ? getNextLlevarNumber() : null;
 
   return {
     success: true,
-    orderNumber: orderNum,
     date: now.toLocaleDateString('es-SV'),
     time: now.toLocaleTimeString('es-SV', { hour: '2-digit', minute: '2-digit' }),
     items: entries,
@@ -798,7 +868,7 @@ function renderTicket(data) {
       <div class="ticket__customer">
         <span class="ticket__customer-name">👤 ${data.customerName}</span>
         ${data.customerPhone ? `<span class="ticket__customer-phone">📱 ${data.customerPhone}</span>` : ''}
-        ${data.customerHora ? `<span class="ticket__customer-phone">🕐 Hora deseada: ${data.customerHora.length === 4 ? data.customerHora.slice(0,2) + ':' + data.customerHora.slice(2) : data.customerHora}</span>` : ''}
+        ${data.customerHora ? `<span class="ticket__customer-phone">🕐 Hora deseada: ${data.customerHora.length === 4 ? data.customerHora.slice(0, 2) + ':' + data.customerHora.slice(2) : data.customerHora}</span>` : ''}
       </div>
       ${data.llevarNumber ? `
       <div class="ticket__llevar-badge">
@@ -807,12 +877,9 @@ function renderTicket(data) {
       ` : ''}
   `;
 
-  // If only one type, show single big badge
+  // If only one type, show single badge; if multiple, skip ORDEN MIXTA to save space
   if (!hasMultipleTypes) {
-    html += `<div class="ticket__order-type">${TYPE_EMOJIS[usedTypes[0]] || ''} ${usedTypes[0]}</div>`;
-  } else {
-    // Multiple types: show combined badge
-    html += `<div class="ticket__order-type ticket__order-type--multi">🔀 ORDEN MIXTA</div>`;
+    html += `<div class="ticket__order-type">${usedTypes[0]}</div>`;
   }
 
   // Render items grouped by order type
@@ -821,42 +888,20 @@ function renderTicket(data) {
 
     // Show type header (always if multiple, skip if single since badge already shows it)
     if (hasMultipleTypes) {
-      html += `<div class="ticket__type-header">${TYPE_EMOJIS[type] || ''} ${type.toUpperCase()}</div>`;
+      html += `<div class="ticket__type-header">${type.toUpperCase()}</div>`;
     }
 
-    // Group by food category within this type
-    const tradicionales = groupItems.filter(i => i.id.startsWith('t'));
-    const especiales = groupItems.filter(i => i.id.startsWith('e'));
-    const personalizadas = groupItems.filter(i => i.id.startsWith('custom_') || (!i.id.startsWith('t') && !i.id.startsWith('e') && !i.id.startsWith('m') && !i.id.startsWith('bf') && !i.id.startsWith('bc')));
-    const tamalesYMas = groupItems.filter(i => i.id.startsWith('m'));
-    const bebidasFrias = groupItems.filter(i => i.id.startsWith('bf'));
-    const bebidasCalientes = groupItems.filter(i => i.id.startsWith('bc'));
-
-    const sections = [
-      { items: tradicionales, icon: '🫓', label: 'Tradicionales' },
-      { items: especiales, icon: '⭐', label: 'Especiales' },
-      { items: personalizadas, icon: '✏️', label: 'Personalizadas' },
-      { items: tamalesYMas, icon: '🫔', label: 'Tamales y Más' },
-      { items: bebidasFrias, icon: '�', label: 'Bebidas Frías' },
-      { items: bebidasCalientes, icon: '☕', label: 'Bebidas Calientes' },
-    ];
-
-    for (const section of sections) {
-      if (section.items.length > 0) {
-        html += `
-          <div class="ticket__section-title">${section.icon} ${section.label}</div>
-          <div class="ticket__items">
-            ${section.items.map(item => `
-              <div class="ticket__item">
-                <span class="ticket__item-name">${item.emoji} ${item.name}${item.masa ? ` (${item.masa === 'maiz' ? 'Maíz' : 'Arroz'})` : ''}</span>
-                <span class="ticket__item-qty">x${item.qty}</span>
-                <span class="ticket__item-price">$${(item.price * item.qty).toFixed(2)}</span>
-              </div>
-            `).join('')}
+    html += `
+      <div class="ticket__items">
+        ${groupItems.map(item => `
+          <div class="ticket__item">
+            <span class="ticket__item-qty" style="font-size: 1.4em; font-weight: 900; min-width: 42px; display: inline-block;">x${item.qty}</span>
+            <span class="ticket__item-name" style="font-size: 1.15em; font-weight: bold;">${item.name}${item.masa ? ` (${item.masa === 'maiz' ? 'Maíz' : 'Arroz'})` : ''}</span>
+            <span class="ticket__item-price" style="font-size: 1.15em;">$${(item.price * item.qty).toFixed(2)}</span>
           </div>
-        `;
-      }
-    }
+        `).join('')}
+      </div>
+    `;
 
     // Divider between type groups
     if (hasMultipleTypes) {
@@ -917,7 +962,7 @@ function newOrder() {
   activeSubcategory = null;
   document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
   document.getElementById('tab-tradicionales').classList.add('active');
-  
+
   // Show order type selector again
   const orderTypeHeader = document.querySelector('.order-type');
   if (orderTypeHeader) orderTypeHeader.style.display = 'block';
@@ -1060,4 +1105,21 @@ function updateDateTime() {
   if (datetimeEl) {
     datetimeEl.innerHTML = `<span>${date}</span><span>${time}</span>`;
   }
+}
+
+// === Go Back to Order Type Selection ===
+function goBackToOrderType() {
+  activeOrderType = null;
+
+  // Remove active state from sidebar buttons
+  document.querySelectorAll('.order-type__btn').forEach(b => b.classList.remove('active'));
+
+  // Hide sidebar order type
+  const orderTypeHeader = document.querySelector('.order-type');
+  if (orderTypeHeader) {
+    orderTypeHeader.style.display = 'none';
+  }
+
+  renderMenu();
+  updateOrderUI();
 }
