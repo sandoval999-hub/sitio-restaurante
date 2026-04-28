@@ -45,7 +45,7 @@ const MENU = {
     { id: 'm7', name: 'Canoas ', emoji: '🍌', price: 1.25, img: 'https://live.staticflickr.com/7336/10968270496_4be4a259a1_z.jpg' },
   ],
   bebidasFrias: [
-    { id: 'bf46', name: 'Jugo del Valle pequeño', emoji: '🧃', price: 0.40, sub: 'jugos y frescos', img: 'https://walmartsv.vtexassets.com/arquivos/ids/377942-800-450?v=638406922263900000&width=800&height=450&aspect=true' },
+    { id: 'bf46', name: 'Jugo del Valle pequeño', emoji: '🧃', price: 0.45, sub: 'jugos y frescos', img: 'https://walmartsv.vtexassets.com/arquivos/ids/377942-800-450?v=638406922263900000&width=800&height=450&aspect=true' },
     { id: 'bf47', name: 'Coca Lata', emoji: '🥫', price: 1.00, sub: 'gaseosas', img: 'https://media.istockphoto.com/id/458464735/es/foto/coca-cola.jpg?s=612x612&w=0&k=20&c=SnB7NqAiTxs3PQzWpSpwOiOncP1hbYHEP9zaDurvLwU=' },
     { id: 'bf48', name: 'Coca Zero', emoji: '🥤', price: 1.00, sub: 'gaseosas', img: 'https://walmartsv.vtexassets.com/arquivos/ids/372501/Gaseosa-Coca-Cola-Sin-Az-car-Lata-354-ml-2-3746.jpg?v=638392773749800000' },
     { id: 'bf12', name: 'Pepsi medium', emoji: '🥤', price: 0.75, sub: 'gaseosas', img: 'img/pepsi-medium.jpg' },
@@ -53,35 +53,35 @@ const MENU = {
     { id: 'bf1', name: 'Fresco Natural', emoji: '🍹', price: 0.50, sub: 'jugos y frescos' },
     { id: 'bf2', name: 'Fresco Natural Doble', emoji: '🍹', price: 1.00, sub: 'jugos y frescos' },
     { id: 'bf7', name: 'Jugo de lata Petit', emoji: '🥫', price: 0.75, sub: 'jugos y frescos', img: "https://th.bing.com/th/id/OIP.1mwlG4SAuSeMtuGfzKtTkwHaJ4?w=150&h=199&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
-    { id: 'bf8', name: 'Frutado pequeño', emoji: '🧃', price: 0.40, sub: 'jugos y frescos' },
+    { id: 'bf8', name: 'Frutado pequeño', emoji: '🧃', price: 0.45, sub: 'jugos y frescos' },
     {
       id: 'bf9', name: 'Jugo del Valle normal', emoji: '🧃', price: 0.75, sub: 'jugos y frescos', img: "https://walmartsv.vtexassets.com/arquivos/ids/486812-500-auto?v=638572752134100000&width=500&height=auto&aspect=true"
     },
     { id: 'bf3', name: 'Gaseosa normal', emoji: '🥤', price: 0.75, sub: 'gaseosas', img: 'img/gaseosa-normal.jpg' },
-    { id: 'bf4', name: 'Gaseosa lata', emoji: '🥫', price: 0.75, sub: 'gaseosas', img: 'img/gaseosa-lata.jpg' },
+    { id: 'bf4', name: 'Gaseosa lata', emoji: '🥫', price: 1.00, sub: 'gaseosas', img: 'img/gaseosa-lata.jpg' },
     { id: 'bf10', name: 'Coca-Cola chiquita', emoji: '🥤', price: 0.60, sub: 'gaseosas', img: 'img/coca-cola-chiquita.jpg' },
     { id: 'bf11', name: 'Té Lipton normal', emoji: '🧊', price: 1.00, sub: 'jugos y frescos', img: 'https://th.bing.com/th/id/OIP.2MUMB9uXqNCHWCJtuQMIJQHaHa' },
     { id: 'bf13', name: 'Mirinda medium', emoji: '🥤', price: 0.75, sub: 'gaseosas', img: 'img/mirinda-medium.jpg' },
     { id: 'bf14', name: '7up medium', emoji: '🥤', price: 0.75, sub: 'gaseosas', img: 'img/7up-medium.jpg' },
     { id: 'bf15', name: 'Té Lipton 1.5 lt', emoji: '🧊', price: 1.50, sub: 'jugos y frescos', img: 'https://tse3.mm.bing.net/th/id/OIP.4XE9egjRlDWCSwMA50TDnwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3' },
     { id: 'bf16', name: 'Té Lipton 2.5 lt', emoji: '🧊', price: 2.50, sub: 'jugos y frescos', img: 'https://tse3.mm.bing.net/th/id/OIP.RZA4kJlCOc9au434egG2qgHaHa' },
-    { id: 'bf17', name: 'Pepsi 1.5 lt', emoji: '🥤', price: 1.50, sub: 'gaseosas', img: 'https://th.bing.com/th/id/OIP.EjV5i1mmBGn_aFiUQv7cXgHaHa' },
+    { id: 'bf17', name: 'Pepsi 1.5 lt', emoji: '🥤', price: 1.25, sub: 'gaseosas', img: 'https://th.bing.com/th/id/OIP.EjV5i1mmBGn_aFiUQv7cXgHaHa' },
     { id: 'bf18', name: 'Pepsi 3 lt', emoji: '🥤', price: 2.50, sub: 'gaseosas', img: 'https://th.bing.com/th/id/OIP.Crl7RIdqrB3hLvb9PxiAVQHaHa' },
     { id: 'bf19', name: 'Coca-Cola 1.5 lt', emoji: '🥤', price: 1.50, sub: 'gaseosas', img: 'https://www.bing.com/th/id/OIP.EJnLfC1GqNP6TuE9UZ62hQHaHa?w=202&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2' },
     { id: 'bf20', name: 'Coca-Cola 2.5 lt', emoji: '🥤', price: 2.50, sub: 'gaseosas', img: 'https://www.bing.com/th/id/OIP.zYLd_lkAkEMTujL8bE97TgHaHa' },
-    { id: 'bf5', name: 'Agua Cristal', emoji: '💧', price: 0.50, sub: 'agua', img: "https://th.bing.com/th/id/OIP.aL5LwSbiCsHNHehDKEQ2ngHaHa?w=181&h=181&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3", },
-    { id: 'bf23', name: 'Agua mineral', emoji: '🥫', price: 0.75, sub: 'agua' },
+    { id: 'bf5', name: 'Agua Cristal', emoji: '💧', price: 0.60, sub: 'agua', img: "https://th.bing.com/th/id/OIP.aL5LwSbiCsHNHehDKEQ2ngHaHa?w=181&h=181&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3", },
+    { id: 'bf23', name: 'Agua mineral', emoji: '🥫', price: 1.00, sub: 'agua' },
     { id: 'bf24', name: 'Agua 1 lt', emoji: '🥤', price: 1.00, sub: 'agua' },
-    { id: 'bf6', name: 'Pilsener', emoji: '🍺', price: 1.25, sub: 'cervezas', img: "https://tse2.mm.bing.net/th/id/OIP.4eEPeeDxFMU_0kKWZhN-kgHaHa?pid=ImgDet&w=178&h=178&c=7&dpr=1,5&o=7&rm=3" },
-    { id: 'bf21', name: 'Pilsener Lata', emoji: '🥫', price: 1.25, sub: 'cervezas', img: "https://th.bing.com/th/id/OIP.qTi0mrMt4IoCyQRLqZCldQHaHY?w=203&h=202&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
+    { id: 'bf6', name: 'Pilsener', emoji: '🍺', price: 1.35, sub: 'cervezas', img: "https://tse2.mm.bing.net/th/id/OIP.4eEPeeDxFMU_0kKWZhN-kgHaHa?pid=ImgDet&w=178&h=178&c=7&dpr=1,5&o=7&rm=3" },
+    { id: 'bf21', name: 'Pilsener Lata', emoji: '🥫', price: 1.35, sub: 'cervezas', img: "https://th.bing.com/th/id/OIP.qTi0mrMt4IoCyQRLqZCldQHaHY?w=203&h=202&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
     { id: 'bf22', name: 'Salutary Lata', emoji: '🥫', price: 0.75, sub: 'gaseosas', img: 'https://images.deliveryhero.io/image/pedidosya/products/642c746470d9b0f412578ed5.jpg' },
     { id: 'bf25', name: 'Pepsi o Mirinda plastica', emoji: '🥤', price: 0.75, sub: 'gaseosas', img: "https://www.bing.com/th/id/OIP.TRayWmSw-hq1pW2ygTT0gAHaK5?w=160&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2", },
     { id: 'bf26', name: 'Salutary plastica', emoji: '🥤', price: 0.75, sub: 'gaseosas', img: "https://lacolonia.vtexassets.com/arquivos/ids/248847-800-auto?v=638671089334830000&width=800&height=auto&aspect=true", },
-    { id: 'bf50', name: 'Salutary pequeña', emoji: '🥤', price: 0.60, sub: 'gaseosas' },
+    { id: 'bf50_salutary', name: 'Salutary pequeña', emoji: '🥤', price: 0.65, sub: 'gaseosas' },
     { id: 'bf51', name: 'Salutary 1.5 litros', emoji: '🥤', price: 1.50, sub: 'gaseosas' },
-    { id: 'bf27', name: 'Pepsi plastica pequeña', emoji: '🥤', price: 0.60, sub: 'gaseosas', img: "https://res.cloudinary.com/riqra/image/upload/v1678811229/sellers/13/ebdvbbx1vfinzeslgk26.jpg", },
+    { id: 'bf27', name: 'Pepsi plastica pequeña', emoji: '🥤', price: 0.65, sub: 'gaseosas', img: "https://res.cloudinary.com/riqra/image/upload/v1678811229/sellers/13/ebdvbbx1vfinzeslgk26.jpg", },
     { id: 'bf28', name: 'Pepsi Lata', emoji: '🥤', price: 0.75, sub: 'gaseosas', img: 'https://www.bing.com/th/id/OIP.2gg274m6dp3ffTXbFILF7AHaHa?w=212&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2', },
-    { id: 'bf29', name: 'Jugo de la Granja', emoji: '🧃', price: 0.75, sub: 'jugos y frescos', img: "https://latinfoodsatyourdoor.com/cdn/shop/files/jugo-de-naranja-de-la-granja.png?v=1747920030&width=1500", },
+    { id: 'bf29', name: 'Jugo de la Granja', emoji: '🧃', price: 1.25, sub: 'jugos y frescos', img: "https://latinfoodsatyourdoor.com/cdn/shop/files/jugo-de-naranja-de-la-granja.png?v=1747920030&width=1500", },
     { id: 'bf30', name: 'Jugo Tampico', emoji: '🧃', price: 0.75, sub: 'jugos y frescos', img: "https://tse2.mm.bing.net/th/id/OIP.p0_AL5NQOMiTlXTSbllB1AHaKg?pid=ImgDet&w=178&h=252&c=7&dpr=1,5&o=7&rm=3" },
     { id: 'bf31', name: 'Chocolatina ¼', emoji: '🪶', price: 0.75, sub: 'jugos y frescos', img: "https://th.bing.com/th/id/OIP.rN3M9hA2NnZn_j_WGI5qUgHaHa?w=191&h=191&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3", },
     { id: 'bf32', name: 'Chocolatina ½', emoji: '🪶', price: 1.00, sub: 'jugos y frescos', img: "https://tse1.mm.bing.net/th/id/OIP.xQLiuaDYjqMbl6U4YHtt8gHaHa?rs=1&pid=ImgDetMain&o=7&rm=3", },
@@ -92,8 +92,8 @@ const MENU = {
     { id: 'bf37', name: 'Monster', emoji: '🔋', price: 2.50, sub: 'energéticas', img: "https://th.bing.com/th/id/OIP.qBLWsqBIw9a2u78d_6546gHaHa?w=218&h=218&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
     { id: 'bf38', name: 'Be Light', emoji: '💧', price: 0.75, sub: 'energéticas', img: "https://th.bing.com/th/id/OIP.Vl-F8GMDqLmGhvwzMj99eAHaHa?w=172&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
     { id: 'bf39', name: 'Golden', emoji: '🍺', price: 1.25, sub: 'cervezas', img: "https://th.bing.com/th/id/OIP.sw8ZqN4yg4P1q6Wsfp6nkQHaHa?w=163&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
-    { id: 'bf40', name: 'Corona', emoji: '🍺', price: 1.50, sub: 'cervezas', img: "https://th.bing.com/th/id/OIP.Ntmj6jczeQzPrE0mYwFDvwHaHa?w=202&h=202&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
-    { id: 'bf41', name: 'Pilsener grande', emoji: '🍺', price: 2.25, sub: 'cervezas', img: "https://th.bing.com/th/id/OIP.hh0TXCpGb1KpD2_xKsn8jAAAAA?w=115&h=186&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
+    { id: 'bf40', name: 'Corona', emoji: '🍺', price: 1.75, sub: 'cervezas', img: "https://th.bing.com/th/id/OIP.Ntmj6jczeQzPrE0mYwFDvwHaHa?w=202&h=202&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
+    { id: 'bf41', name: 'Pilsener grande', emoji: '🍺', price: 2.50, sub: 'cervezas', img: "https://th.bing.com/th/id/OIP.hh0TXCpGb1KpD2_xKsn8jAAAAA?w=115&h=186&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
     { id: 'bf42', name: 'Regia grande', emoji: '🍺', price: 2.25, sub: 'cervezas', img: "https://tse4.mm.bing.net/th/id/OIP.jRDtQkH9yzxO8r71mwDgWwHaSC?pid=ImgDet&w=144&h=350&c=7&dpr=1,5&o=7&rm=3" },
     { id: 'bf43', name: 'Suprema', emoji: '🍺', price: 1.25, sub: 'cervezas', img: "https://tse3.mm.bing.net/th/id/OIP.lnfg0oJ3v-WkqGFMFW51qQAAAA?rs=1&pid=ImgDetMain&o=7&rm=3" },
     { id: 'bf44', name: 'Coca Cola 3 lt', emoji: '🥤', price: 3.00, sub: 'gaseosas', img: "https://www.bing.com/th/id/OIP.PL876p8XUtZezqUWRXNSdwHaHa?w=199&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2", },
@@ -101,7 +101,7 @@ const MENU = {
     { id: 'bf50', name: 'Grapette Lata', emoji: '🥫', price: 0.75, sub: 'gaseosas' },
     { id: 'bf51', name: 'Grapette Botella', emoji: '🥤', price: 0.60, sub: 'gaseosas' },
     { id: 'bf52', name: 'Jugo del Valle Litro', emoji: '🧃', price: 1.50, sub: 'jugos y frescos' },
-    { id: 'bf53', name: 'Jugo del Valle 2 Litros', emoji: '🧃', price: 1.75, sub: 'jugos y frescos' },
+    { id: 'bf53', name: 'Jugo del Valle 2 Litros', emoji: '🧃', price: 2.00, sub: 'jugos y frescos' },
     { id: 'bf54', name: 'Red Bull Lata', emoji: '🔋', price: 1.25, sub: 'energéticas' },
   ],
   bebidasCalientes: [
@@ -109,7 +109,7 @@ const MENU = {
     { id: 'bc2', name: 'Café con leche', emoji: '🫖,🥛', price: 0.75 },
     { id: 'bc3', name: 'Chocolate', emoji: '☕', price: 0.75 },
     { id: 'bc4', name: 'Chocolate con leche', emoji: '☕,🥛', price: 0.75 },
-    { id: 'bc5', name: 'Leche Caliente', emoji: '🍵', price: 0.80 },
+    { id: 'bc5', name: 'Leche Caliente', emoji: '🍵', price: 0.85 },
     { id: 'bc6', name: 'Cappuccino', emoji: '☕', price: 1.00 },
     { id: 'bc7', name: 'Café con cremora', emoji: '🫖', price: 0.75 },
   ]
@@ -142,6 +142,11 @@ let order = {}; // { itemId: { ...itemData, qty: N, orderType: string } }
 let activeCategory = 'tradicionales';
 let activeSubcategory = null; // subcategory filter for bebidasFrias
 let activeOrderType = null; // must be selected before ordering
+let lastTicketData = null; // stores last generated ticket data for saving on print
+let ticketAlreadySaved = false; // prevents double-saving the same ticket
+let beverageSearchTerm = ''; // search filter for bebidasFrias
+let editingOrderId = null; // if we are currently editing an existing order
+let editingOrderNumber = null; // original order number when editing
 
 // === DOM References ===
 const menuGrid = document.getElementById('menuGrid');
@@ -168,6 +173,13 @@ document.addEventListener('DOMContentLoaded', () => {
   updateOrderUI();
   updateDateTime();
   setInterval(updateDateTime, 1000);
+
+  // Check if we are editing an order
+  const urlParams = new URLSearchParams(window.location.search);
+  const editId = urlParams.get('edit_order');
+  if (editId) {
+      loadOrderForEditing(editId);
+  }
 
   // Category tabs
   document.querySelectorAll('.category-tab').forEach(tab => {
@@ -223,6 +235,78 @@ document.addEventListener('DOMContentLoaded', () => {
     e.target.value = e.target.value.replace(/[^0-9:]/g, '').slice(0, 5);
   });
 });
+
+// === Load Order For Editing ===
+async function loadOrderForEditing(id) {
+    try {
+        const response = await fetch(`obtener_orden.php?id=${id}`);
+        const data = await response.json();
+        if (data.success) {
+            const ord = data.order;
+            editingOrderId = ord.id;
+            editingOrderNumber = ord.orderNumber;
+            
+            // Set customer info
+            customerNameInput.value = ord.customerName || '';
+            customerPhoneInput.value = ord.customerPhone || '';
+            
+            // Set order items
+            order = {};
+            let firstType = null;
+            
+            ord.items.forEach((item, index) => {
+                if (!firstType) firstType = item.orderType;
+                const masaSuffix = item.masa ? `__${item.masa}` : '';
+                const key = `${item.id}__${item.orderType.replace(/\\s/g, '_')}${masaSuffix}`;
+                // Si el id es de custom, usamos el índice o el mismo id
+                if (!order[key]) {
+                    order[key] = {
+                        id: item.id,
+                        name: item.name,
+                        emoji: item.emoji,
+                        price: parseFloat(item.price),
+                        qty: parseInt(item.qty),
+                        orderType: item.orderType,
+                        masa: item.masa
+                    };
+                } else {
+                    order[key].qty += parseInt(item.qty);
+                }
+            });
+            
+            // Set active order type based on first item, or 'Comer Aquí'
+            activeOrderType = firstType || 'Comer Aquí';
+            
+            // Update UI elements to reflect editing state
+            const subtitle = document.getElementById('headerSubtitle');
+            if (subtitle) {
+                subtitle.innerHTML = `Editando <strong>${ord.orderNumber}</strong>`;
+                subtitle.style.color = 'var(--accent-gold)';
+            }
+            
+            // Sync sidebar buttons
+            document.querySelectorAll('.order-type__btn').forEach(b => b.classList.remove('active'));
+            const typeMapReverse = { 'Comer Aquí': 'typeAqui', 'Para Llevar': 'typeLlevar', 'Domicilio': 'typeDomicilio' };
+            const sidebarBtn = document.getElementById(typeMapReverse[activeOrderType]);
+            if (sidebarBtn) sidebarBtn.classList.add('active');
+            
+            const orderTypeHeader = document.querySelector('.order-type');
+            if (orderTypeHeader) {
+              orderTypeHeader.style.display = 'block';
+            }
+            
+            showToast(`✏️ Editando ${ord.orderNumber}`);
+            
+            renderMenu();
+            updateSectionHeader();
+            updateOrderUI();
+        } else {
+            showToast('❌ Error al cargar la orden para editar');
+        }
+    } catch (e) {
+        showToast('❌ Error de conexión');
+    }
+}
 
 // === Update Section Header ===
 function updateSectionHeader() {
@@ -322,11 +406,21 @@ function renderMenu() {
             ${info.icon} ${info.label}
           </button>
         `).join('')}
+        <div class="bebida-search-wrapper">
+          <span class="bebida-search-icon">🔍</span>
+          <input type="text" id="bebidaSearchInput" class="bebida-search-input" placeholder="Buscar bebida..." value="${beverageSearchTerm}" autocomplete="off">
+          ${beverageSearchTerm ? '<button class="bebida-search-clear" id="bebidaSearchClear">✕</button>' : ''}
+        </div>
       </div>
     `;
     // Filter items by subcategory if one is selected
     if (activeSubcategory) {
       items = items.filter(i => i.sub === activeSubcategory);
+    }
+    // Filter items by search term
+    if (beverageSearchTerm) {
+      const term = beverageSearchTerm.toLowerCase();
+      items = items.filter(i => i.name.toLowerCase().includes(term));
     }
   }
 
@@ -525,10 +619,102 @@ function renderMenu() {
       const sub = btn.dataset.sub;
       // Toggle: clicking same subcategory deselects it (show all)
       activeSubcategory = (activeSubcategory === sub) ? null : sub;
+      beverageSearchTerm = ''; // clear search when switching subcategory
       renderMenu();
       updateSectionHeader();
     });
   });
+
+  // Beverage search input listener
+  const bebidaSearch = document.getElementById('bebidaSearchInput');
+  if (bebidaSearch) {
+    bebidaSearch.addEventListener('input', (e) => {
+      beverageSearchTerm = e.target.value;
+      // Re-render only the items, not the whole menu (preserve focus)
+      let filteredItems = MENU.bebidasFrias || [];
+      if (activeSubcategory) {
+        filteredItems = filteredItems.filter(i => i.sub === activeSubcategory);
+      }
+      if (beverageSearchTerm) {
+        const term = beverageSearchTerm.toLowerCase();
+        filteredItems = filteredItems.filter(i => i.name.toLowerCase().includes(term));
+      }
+      // Update only the grid items (keep sub-filter bar intact)
+      const gridItems = menuGrid.querySelectorAll('.menu-item');
+      gridItems.forEach(el => el.remove());
+      const clearBtn = document.getElementById('bebidaSearchClear');
+      if (beverageSearchTerm && !clearBtn) {
+        const wrapper = bebidaSearch.parentElement;
+        const btn = document.createElement('button');
+        btn.className = 'bebida-search-clear';
+        btn.id = 'bebidaSearchClear';
+        btn.textContent = '✕';
+        btn.addEventListener('click', () => {
+          beverageSearchTerm = '';
+          renderMenu();
+          // Re-focus search after render
+          const newSearch = document.getElementById('bebidaSearchInput');
+          if (newSearch) newSearch.focus();
+        });
+        wrapper.appendChild(btn);
+      } else if (!beverageSearchTerm && clearBtn) {
+        clearBtn.remove();
+      }
+      // Re-render items in grid
+      const itemsHTML = filteredItems.map(item => {
+        const typeKey = `${item.id}__${activeOrderType.replace(/\s/g, '_')}`;
+        const hasAnyOrder = !!order[typeKey];
+        return `
+          <div class="menu-item ${hasAnyOrder ? 'active' : ''}" data-id="${item.id}" id="menu-${item.id}">
+            ${item.img ? `<img class="menu-item__img" src="${item.img}" alt="${item.name}" loading="lazy">` : `<span class="menu-item__emoji">${item.emoji}</span>`}
+            <span class="menu-item__name">${item.name}</span>
+            <span class="menu-item__price">$${item.price.toFixed(2)}</span>
+            <div class="qty-selector ${hasAnyOrder ? 'visible' : ''}" id="qty-${item.id}">
+              <button class="qty-btn remove" onclick="event.stopPropagation(); changeQty('${item.id}', -1)">−</button>
+              <span class="qty-display" id="qtyVal-${item.id}">${hasAnyOrder ? order[typeKey].qty : 0}</span>
+              <button class="qty-btn add" onclick="event.stopPropagation(); changeQty('${item.id}', 1)">+</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+      menuGrid.insertAdjacentHTML('beforeend', itemsHTML);
+      // Re-attach click listeners for new items
+      menuGrid.querySelectorAll('.menu-item').forEach(el => {
+        el.addEventListener('click', (e) => {
+          if (e.target.closest('.qty-btn')) return;
+          const id = el.dataset.id;
+          const item = findItem(id);
+          if (!item) return;
+          const key = `${id}__${activeOrderType.replace(/\s/g, '_')}`;
+          if (!order[key]) {
+            order[key] = { ...item, qty: 1, orderType: activeOrderType };
+            showToast(`✅ ${item.name} (${activeOrderType})`);
+          }
+          const qtyValEl = document.getElementById(`qtyVal-${id}`);
+          const qtySelectorEl = document.getElementById(`qty-${id}`);
+          const cardEl = document.getElementById(`menu-${id}`);
+          if (qtyValEl) qtyValEl.textContent = order[key].qty;
+          if (qtySelectorEl) qtySelectorEl.classList.add('visible');
+          if (cardEl) cardEl.classList.add('active');
+          updateOrderUI();
+        });
+      });
+    });
+    // Focus the input and place cursor at end
+    bebidaSearch.focus();
+    bebidaSearch.selectionStart = bebidaSearch.selectionEnd = bebidaSearch.value.length;
+  }
+
+  // Beverage search clear button listener
+  const bebidaSearchClear = document.getElementById('bebidaSearchClear');
+  if (bebidaSearchClear) {
+    bebidaSearchClear.addEventListener('click', () => {
+      beverageSearchTerm = '';
+      renderMenu();
+      const newSearch = document.getElementById('bebidaSearchInput');
+      if (newSearch) newSearch.focus();
+    });
+  }
 }
 
 // === Find Item in Menu ===
@@ -792,18 +978,43 @@ async function generateTicket() {
   btnTicket.innerHTML = '⏳ Generando...';
 
   try {
-    // Only Para Llevar gets a sequential order number (1-100)
-    const isLlevar = activeOrderType === 'Para Llevar';
-    const llevarNum = isLlevar ? getNextLlevarNumber() : null;
+    // Determine order number: if editing AND Para Llevar, keep original. Else if editing, keep original.
+    // If not editing, generate new sequential number if Para Llevar.
+    let llevarNum = null;
+    let finalOrderNumber = null;
+    
+    if (editingOrderId) {
+        finalOrderNumber = editingOrderNumber;
+        if (activeOrderType === 'Para Llevar' && editingOrderNumber && editingOrderNumber.includes('#')) {
+            llevarNum = editingOrderNumber.replace('Orden #', '');
+        }
+    } else {
+        const isLlevar = activeOrderType === 'Para Llevar';
+        llevarNum = isLlevar ? getNextLlevarNumber() : null;
+    }
+    
     const response = await fetch('generar_ticket.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ items: entries, customerName, customerPhone, customerHora, llevarNumber: llevarNum })
+      body: JSON.stringify({ items: entries, customerName, customerPhone, customerHora, llevarNumber: llevarNum, orderNumber: finalOrderNumber })
     });
 
     const data = await response.json();
 
     if (data.success) {
+      // Preparar datos para guardar en BD al imprimir
+      lastTicketData = {
+        orderNumber: data.orderNumber,
+        customerName: data.customerName,
+        customerPhone: data.customerPhone,
+        subtotal: data.subtotal,
+        total: data.total,
+        date: data.date,
+        time: data.time,
+        items: data.items,
+        editingOrderId: editingOrderId
+      };
+      ticketAlreadySaved = false;
       renderTicket(data);
       openModal();
     } else {
@@ -872,14 +1083,14 @@ function renderTicket(data) {
       </div>
       ${data.llevarNumber ? `
       <div class="ticket__llevar-badge">
-        📦 Número de Orden: <strong>#${data.llevarNumber}</strong>
+        Número de Orden: <strong>#${data.llevarNumber}</strong>
       </div>
       ` : ''}
   `;
 
   // If only one type, show single badge; if multiple, skip ORDEN MIXTA to save space
   if (!hasMultipleTypes) {
-    html += `<div class="ticket__order-type">${usedTypes[0]}</div>`;
+    html += `<div class="ticket__order-type">"${usedTypes[0]}"</div>`;
   }
 
   // Render items grouped by order type
@@ -888,7 +1099,7 @@ function renderTicket(data) {
 
     // Show type header (always if multiple, skip if single since badge already shows it)
     if (hasMultipleTypes) {
-      html += `<div class="ticket__type-header">${type.toUpperCase()}</div>`;
+      html += `<div class="ticket__type-header">"${type.toUpperCase()}"</div>`;
     }
 
     html += `
@@ -922,9 +1133,8 @@ function renderTicket(data) {
         </div>
       </div>
       <div class="ticket__footer">
-        <div class="ticket__footer-emoji">🙏</div>
-        ¡Gracias por su compra, ${data.customerName}!<br>
-        <strong>Comedor Señorial — ¡Buen provecho!</strong>
+        ¡Gracias por su compra en el<br>
+        <strong>Comedor Señorial</strong>
       </div>
     </div>
   `;
@@ -944,15 +1154,93 @@ function openModal() {
 function closeModal() {
   modalOverlay.classList.remove('visible');
   document.body.style.overflow = '';
+
+  // Si había un ticket generado, limpiar todo para nueva orden
+  if (lastTicketData) {
+    order = {};
+    activeOrderType = null;
+    lastTicketData = null;
+    ticketAlreadySaved = false;
+    
+    // Clear editing state
+    editingOrderId = null;
+    editingOrderNumber = null;
+    const subtitle = document.getElementById('headerSubtitle');
+    if (subtitle) {
+        subtitle.innerHTML = 'Pupusería — Sistema de Órdenes';
+        subtitle.style.color = 'var(--text-muted)';
+    }
+    
+    // Quitar param de URL si existe
+    if (window.history.replaceState) {
+        const url = new URL(window.location);
+        url.searchParams.delete('edit_order');
+        window.history.replaceState({}, '', url);
+    }
+
+    // Limpiar campos de cliente
+    customerNameInput.value = '';
+    customerPhoneInput.value = '';
+    customerHoraInput.value = '';
+
+    // Reset categoría a Tradicionales
+    activeCategory = 'tradicionales';
+    activeSubcategory = null;
+    document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('tab-tradicionales').classList.add('active');
+
+    // Mostrar selector de tipo de orden de nuevo
+    document.querySelectorAll('.order-type__btn').forEach(b => b.classList.remove('active'));
+    const orderTypeHeader = document.querySelector('.order-type');
+    if (orderTypeHeader) orderTypeHeader.style.display = 'block';
+
+    renderMenu();
+    updateSectionHeader();
+    updateOrderUI();
+    showToast('🔄 Campos limpiados — listo para nueva orden');
+  }
 }
 
-function printTicket() {
+async function printTicket() {
   window.print();
+
+  // Guardar orden en BD automáticamente después de imprimir
+  if (lastTicketData && !ticketAlreadySaved) {
+    try {
+      const saveResponse = await fetch('guardar_orden.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(lastTicketData)
+      });
+      const saveResult = await saveResponse.json();
+      if (saveResult.success) {
+        ticketAlreadySaved = true;
+        showToast('💾 Orden guardada en inventario');
+      } else {
+        showToast('⚠️ Error al guardar en inventario');
+      }
+    } catch (err) {
+      showToast('⚠️ No se pudo guardar en inventario');
+    }
+  }
 }
 
 function newOrder() {
   order = {};
   activeOrderType = null;
+  // Clear editing state
+  editingOrderId = null;
+  editingOrderNumber = null;
+  const subtitle = document.getElementById('headerSubtitle');
+  if (subtitle) {
+      subtitle.innerHTML = 'Pupusería — Sistema de Órdenes';
+      subtitle.style.color = 'var(--text-muted)';
+  }
+  if (window.history.replaceState) {
+      const url = new URL(window.location);
+      url.searchParams.delete('edit_order');
+      window.history.replaceState({}, '', url);
+  }
   closeModal();
   // Clear customer fields
   customerNameInput.value = '';

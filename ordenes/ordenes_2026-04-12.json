@@ -1,0 +1,94 @@
+[
+    {
+        "orderNumber": "Orden #26",
+        "date": "12\/04\/2026",
+        "time": "12:14 PM",
+        "customerName": "josue",
+        "customerPhone": "23233434",
+        "items": [
+            {
+                "id": "t3",
+                "name": "Frijol",
+                "emoji": "🫘",
+                "price": 0.95,
+                "qty": 5,
+                "total": 4.75,
+                "orderType": "Comer Aquí",
+                "masa": "maiz"
+            },
+            {
+                "id": "t7",
+                "name": "Queso",
+                "emoji": "🧀",
+                "price": 0.95,
+                "qty": 5,
+                "total": 4.75,
+                "orderType": "Comer Aquí",
+                "masa": "maiz"
+            },
+            {
+                "id": "e2",
+                "name": "Tocino\/Queso",
+                "emoji": "🥓,🧀",
+                "price": 1.25,
+                "qty": 4,
+                "total": 5,
+                "orderType": "Comer Aquí",
+                "masa": "maiz"
+            },
+            {
+                "id": "bc2",
+                "name": "Café con leche",
+                "emoji": "🫖,🥛",
+                "price": 0.75,
+                "qty": 4,
+                "total": 3,
+                "orderType": "Comer Aquí",
+                "masa": null
+            },
+            {
+                "id": "bc3",
+                "name": "Chocolate",
+                "emoji": "☕",
+                "price": 0.75,
+                "qty": 3,
+                "total": 2.25,
+                "orderType": "Comer Aquí",
+                "masa": null
+            },
+            {
+                "id": "bf2",
+                "name": "Fresco Natural Doble",
+                "emoji": "🍹",
+                "price": 1,
+                "qty": 2,
+                "total": 2,
+                "orderType": "Comer Aquí",
+                "masa": null
+            },
+            {
+                "id": "t7",
+                "name": "Queso",
+                "emoji": "🧀",
+                "price": 0.95,
+                "qty": 4,
+                "total": 3.8,
+                "orderType": "Para Llevar",
+                "masa": "maiz"
+            },
+            {
+                "id": "t1",
+                "name": "Revueltas",
+                "emoji": "🫓",
+                "price": 0.95,
+                "qty": 4,
+                "total": 3.8,
+                "orderType": "Para Llevar",
+                "masa": "maiz"
+            }
+        ],
+        "subtotal": 29.35,
+        "total": 29.35,
+        "timestamp": "2026-04-12 12:14:20"
+    }
+]

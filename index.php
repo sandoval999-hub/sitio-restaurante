@@ -19,12 +19,16 @@
       <img src="img/logo.png" alt="Comedor Señorial" class="header__logo">
       <div>
         <h1 class="header__title">Comedor Señorial</h1>
-        <span class="header__subtitle">Pupusería — Sistema de Órdenes</span>
+        <span class="header__subtitle" id="headerSubtitle">Pupusería — Sistema de Órdenes</span>
       </div>
     </div>
     <div style="display: flex; align-items: center; gap: 1rem;">
-      <button id="btnVolver" onclick="goBackToOrderType()" style="display:none; background: rgba(255,255,255,0.15); padding: 0.4rem 0.8rem; border-radius: 6px; color: white; font-weight: 700; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.3); cursor: pointer; font-family: 'Outfit', sans-serif;">⬅ Volver</button>
-      <a href="inventario.php?logout=1" style="background: rgba(255,255,255,0.1); padding: 0.4rem 0.8rem; border-radius: 6px; text-decoration: none; color: white; font-weight: 600; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.2);">📊 Inventario Diario</a>
+      <button id="btnVolver" onclick="goBackToOrderType()"
+        style="display:none; background: rgba(255,255,255,0.15); padding: 0.4rem 0.8rem; border-radius: 6px; color: white; font-weight: 700; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.3); cursor: pointer; font-family: 'Outfit', sans-serif;">⬅
+        Volver</button>
+      <a href="inventario.php?logout=1"
+        style="background: rgba(255,255,255,0.1); padding: 0.4rem 0.8rem; border-radius: 6px; text-decoration: none; color: white; font-weight: 600; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.2);">📊
+        Inventario Diario</a>
       <div class="header__datetime" id="datetime"></div>
     </div>
   </header>
@@ -93,8 +97,10 @@
           <input type="tel" id="customerPhone" class="customer-input" placeholder="0000-0000">
         </div>
         <div class="customer-field">
-          <label for="customerHora" class="customer-label">🕐 Hora deseada <span class="optional">(opcional)</span></label>
-          <input type="text" id="customerHora" class="customer-input" placeholder="Ej: 12:30" maxlength="5" inputmode="numeric">
+          <label for="customerHora" class="customer-label">🕐 Hora deseada <span
+              class="optional">(opcional)</span></label>
+          <input type="text" id="customerHora" class="customer-input" placeholder="Ej: 12:30" maxlength="5"
+            inputmode="numeric">
         </div>
       </div>
 
@@ -102,9 +108,12 @@
       <div class="order-type" style="display:none;">
         <label class="customer-label">🏷️ Tipo de Orden</label>
         <div class="order-type__options">
-          <button class="order-type__btn" data-type="comer-aqui" id="typeAqui"><span class="emoji-animate emoji-plates">🍽️</span> Comer Aquí</button>
-          <button class="order-type__btn" data-type="para-llevar" id="typeLlevar"><span class="emoji-animate emoji-box">📦</span> Para Llevar</button>
-          <button class="order-type__btn" data-type="domicilio" id="typeDomicilio"><span class="emoji-animate emoji-moto">🛵</span> Domicilio</button>
+          <button class="order-type__btn" data-type="comer-aqui" id="typeAqui"><span
+              class="emoji-animate emoji-plates">🍽️</span> Comer Aquí</button>
+          <button class="order-type__btn" data-type="para-llevar" id="typeLlevar"><span
+              class="emoji-animate emoji-box">📦</span> Para Llevar</button>
+          <button class="order-type__btn" data-type="domicilio" id="typeDomicilio"><span
+              class="emoji-animate emoji-moto">🛵</span> Domicilio</button>
         </div>
       </div>
 
@@ -142,7 +151,7 @@
       <div class="modal-actions">
         <button class="btn-print" onclick="printTicket()" id="btnPrint">🖨️ Imprimir</button>
         <button class="btn-new-order" onclick="newOrder()" id="btnNewOrder">🆕 Nueva Orden</button>
-        <button class="btn-close-modal" onclick="closeModal()" id="btnCloseModal">✖ Cerrar</button>
+        <button class="btn-close-modal" onclick="closeModal()" id="btnCloseModal">↩ Volver</button>
       </div>
     </div>
   </div>

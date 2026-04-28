@@ -44,10 +44,22 @@ $orderDate = $now->format('Y-m-d');
 try {
     $pdo->beginTransaction();
 
-    // Insertar Orden
-    $stmt = $pdo->prepare("INSERT INTO ordenes (order_number, customer_name, customer_phone, subtotal, total, order_date, order_time) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->execute([$orderNumber, $customerName, $customerPhone, $subtotal, $total, $orderDate, $time]);
-    $orden_id = $pdo->lastInsertId();
+    if (isset($data['editingOrderId']) && is_numeric($data['editingOrderId'])) {
+        $orden_id = intval($data['editingOrderId']);
+        // Actualizar Orden
+        $stmt = $pdo->prepare("UPDATE ordenes SET customer_name = ?, customer_phone = ?, subtotal = ?, total = ? WHERE id = ?");
+        // Nota: Mantenemos el order_number original, order_date y order_time. Si se quisiera actualizar el order_number (ej. si cambió a Para Llevar), se haría aquí. Según requerimiento, se mantiene el número (Para llevar) o nombre original.
+        $stmt->execute([$customerName, $customerPhone, $subtotal, $total, $orden_id]);
+        
+        // Eliminar items anteriores
+        $stmtDel = $pdo->prepare("DELETE FROM orden_items WHERE orden_id = ?");
+        $stmtDel->execute([$orden_id]);
+    } else {
+        // Insertar Orden
+        $stmt = $pdo->prepare("INSERT INTO ordenes (order_number, customer_name, customer_phone, subtotal, total, order_date, order_time) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt->execute([$orderNumber, $customerName, $customerPhone, $subtotal, $total, $orderDate, $time]);
+        $orden_id = $pdo->lastInsertId();
+    }
 
     // Insertar Items
     $stmtItem = $pdo->prepare("INSERT INTO orden_items (orden_id, item_id, item_name, emoji, price, qty, total, order_type, masa) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");

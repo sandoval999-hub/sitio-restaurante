@@ -584,26 +584,47 @@ $ventas_por_tipo = $stmtTypesItems->fetchAll(PDO::FETCH_ASSOC);
 
     <!-- Órdenes del Día con opción de Eliminar -->
     <?php
-    // Obtener órdenes individuales del día
-    $stmtOrdenes = $pdo->prepare("SELECT * FROM ordenes WHERE order_date = ? ORDER BY id DESC");
-    $stmtOrdenes->execute([$filtro_fecha]);
+    $buscar = isset($_GET['buscar']) ? trim($_GET['buscar']) : '';
+    
+    if ($buscar !== '') {
+        $stmtOrdenes = $pdo->prepare("SELECT * FROM ordenes WHERE customer_name LIKE ? OR order_number LIKE ? ORDER BY id DESC");
+        $stmtOrdenes->execute(['%' . $buscar . '%', '%' . $buscar . '%']);
+        $titulo_ordenes = "Resultados de Búsqueda para '$buscar'";
+    } else {
+        $stmtOrdenes = $pdo->prepare("SELECT * FROM ordenes WHERE order_date = ? ORDER BY id DESC");
+        $stmtOrdenes->execute([$filtro_fecha]);
+        $titulo_ordenes = "Órdenes del Día";
+    }
     $ordenes = $stmtOrdenes->fetchAll(PDO::FETCH_ASSOC);
     ?>
     <div class="data-section">
-        <div class="data-section__header">📋 Órdenes del Día (<?= count($ordenes) ?>)</div>
+        <div class="data-section__header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <span>📋 <?= $titulo_ordenes ?> (<?= count($ordenes) ?>)</span>
+            <form method="GET" action="inventario.php" class="bebida-search-wrapper" style="margin-left: 0; min-width: 250px;">
+                <input type="hidden" name="fecha" value="<?= htmlspecialchars($filtro_fecha) ?>">
+                <span class="bebida-search-icon">🔍</span>
+                <input type="text" name="buscar" class="bebida-search-input" placeholder="Buscar por nombre u orden..." value="<?= htmlspecialchars($buscar) ?>" autocomplete="off" style="padding-right: 30px;">
+                <?php if ($buscar !== ''): ?>
+                    <a href="inventario.php?fecha=<?= htmlspecialchars($filtro_fecha) ?>" class="bebida-search-clear" style="text-decoration:none; display:flex;">✕</a>
+                <?php else: ?>
+                    <button type="submit" style="display: none;"></button>
+                <?php endif; ?>
+            </form>
+        </div>
         <div style="padding: 1rem;">
             <?php if (empty($ordenes)): ?>
                 <div class="no-data">No hay órdenes registradas para esta fecha.</div>
             <?php else: ?>
                 <?php foreach ($ordenes as $orden): ?>
-                <div class="order-card" id="orden-<?= $orden['id'] ?>">
-                    <div class="order-card__header">
-                        <span>
-                            <span class="order-card__num"><?= htmlspecialchars($orden['order_number']) ?></span>
-                            <span class="order-card__time"> — <?= htmlspecialchars($orden['order_time']) ?></span>
-                        </span>
+                    <div class="order-card" id="orden-<?= $orden['id'] ?>">
+                        <div class="order-card__header">
+                            <span>
+                                <span class="order-card__num"><?= htmlspecialchars($orden['order_number']) ?></span>
+                                <span class="order-card__time"> — <?= htmlspecialchars($orden['order_date'] ?? '') ?> <?= htmlspecialchars($orden['order_time']) ?></span>
+                            </span>
                         <span style="display:flex; align-items:center; gap:0.75rem;">
                             <span class="order-card__total">$<?= number_format($orden['total'], 2) ?></span>
+                            <button class="btn-details-order" onclick="verDetallesOrden(<?= $orden['id'] ?>)" title="Ver detalles">📋</button>
                             <button class="btn-delete-order" onclick="eliminarOrden(<?= $orden['id'] ?>, '<?= htmlspecialchars($orden['order_number']) ?>', <?= $orden['total'] ?>)" title="Eliminar orden">🗑️</button>
                         </span>
                     </div>
@@ -622,6 +643,21 @@ $ventas_por_tipo = $stmtTypesItems->fetchAll(PDO::FETCH_ASSOC);
   </main>
 
   <style>
+    .btn-details-order {
+        background: rgba(91, 143, 212, 0.15);
+        border: 1px solid rgba(91, 143, 212, 0.3);
+        color: var(--accent-blue);
+        padding: 0.3rem 0.6rem;
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        font-size: 0.85rem;
+        transition: all 0.2s;
+    }
+    .btn-details-order:hover {
+        background: var(--accent-blue);
+        color: white;
+        transform: scale(1.05);
+    }
     .btn-delete-order {
         background: rgba(224, 85, 85, 0.15);
         border: 1px solid rgba(224, 85, 85, 0.3);
@@ -645,6 +681,8 @@ $ventas_por_tipo = $stmtTypesItems->fetchAll(PDO::FETCH_ASSOC);
   </style>
 
   <script>
+  let ordenActualEditId = null;
+
   async function eliminarOrden(id, orderNum, total) {
       if (!confirm(`¿Estás seguro de eliminar ${orderNum}?\nMonto: $${total.toFixed(2)}\n\nEsta acción restará el monto de los ingresos del día.`)) {
           return;
@@ -663,7 +701,6 @@ $ventas_por_tipo = $stmtTypesItems->fetchAll(PDO::FETCH_ASSOC);
           const data = await response.json();
 
           if (data.success) {
-              // Reload page to update all stats
               window.location.reload();
           } else {
               alert('Error: ' + (data.error || 'No se pudo eliminar'));
@@ -674,6 +711,162 @@ $ventas_por_tipo = $stmtTypesItems->fetchAll(PDO::FETCH_ASSOC);
           if (card) card.classList.remove('deleting');
       }
   }
+
+  async function verDetallesOrden(id) {
+      ordenActualEditId = id;
+      try {
+          const res = await fetch(`obtener_orden.php?id=${id}`);
+          const data = await res.json();
+          if (data.success) {
+              renderTicketEnInventario(data.order);
+              document.getElementById('modalDetalles').classList.add('visible');
+              document.body.style.overflow = 'hidden';
+          } else {
+              alert('Error al obtener detalles: ' + data.error);
+          }
+      } catch (e) {
+          alert('Error de conexión');
+      }
+  }
+
+  function cerrarModalDetalles() {
+      document.getElementById('modalDetalles').classList.remove('visible');
+      document.body.style.overflow = '';
+      ordenActualEditId = null;
+  }
+
+  function editarOrden() {
+      if (ordenActualEditId) {
+          window.location.href = `index.php?edit_order=${ordenActualEditId}`;
+      }
+  }
+
+  function imprimirTicketInventario() {
+      window.print();
+  }
+
+  function renderTicketEnInventario(data) {
+      const typeGroups = {};
+      for (const item of data.items) {
+          const type = item.orderType || 'Comer Aquí';
+          if (!typeGroups[type]) typeGroups[type] = [];
+          typeGroups[type].push(item);
+      }
+      
+      const usedTypes = Object.keys(typeGroups);
+      const hasMultipleTypes = usedTypes.length > 1;
+
+      let html = `
+        <div class="ticket">
+          <div class="ticket__header">
+            <img class="ticket__logo-img" src="img/logo.png" alt="Comedor Señorial" />
+            <div class="ticket__title">Comedor Señorial</div>
+            <div class="ticket__info">
+              Pupusería — Sistema de Órdenes<br>
+              ${data.date} — ${data.time}
+            </div>
+          </div>
+          <div class="ticket__customer">
+            <span class="ticket__customer-name">👤 ${data.customerName}</span>
+            ${data.customerPhone ? `<span class="ticket__customer-phone">📱 ${data.customerPhone}</span>` : ''}
+          </div>
+          ${data.orderNumber && data.orderNumber.startsWith('ORD') ? '' : `
+          <div class="ticket__llevar-badge">
+            Número de Orden: <strong>#${data.orderNumber.replace('Orden #', '')}</strong>
+          </div>
+          `}
+      `;
+
+      if (!hasMultipleTypes) {
+          html += `<div class="ticket__order-type">"${usedTypes[0]}"</div>`;
+      }
+
+      for (const type of usedTypes) {
+          const groupItems = typeGroups[type];
+          if (hasMultipleTypes) {
+              html += `<div class="ticket__type-header">"${type.toUpperCase()}"</div>`;
+          }
+
+          html += `<div class="ticket__items">`;
+          groupItems.forEach(item => {
+              html += `
+                <div class="ticket__item">
+                  <span class="ticket__item-qty" style="font-size: 1.4em; font-weight: 900; min-width: 42px; display: inline-block;">x${item.qty}</span>
+                  <span class="ticket__item-name" style="font-size: 1.15em; font-weight: bold;">${item.name}${item.masa ? ` (${item.masa === 'maiz' ? 'Maíz' : 'Arroz'})` : ''}</span>
+                  <span class="ticket__item-price" style="font-size: 1.15em;">$${(item.price * item.qty).toFixed(2)}</span>
+                </div>
+              `;
+          });
+          html += `</div>`;
+
+          if (hasMultipleTypes) {
+              html += `<hr class="ticket__divider ticket__divider--light">`;
+          }
+      }
+
+      html += `
+          <hr class="ticket__divider">
+          <div class="ticket__totals">
+            <div class="ticket__total-row">
+              <span>Subtotal</span>
+              <span>$${data.subtotal.toFixed(2)}</span>
+            </div>
+            <div class="ticket__total-row grand">
+              <span>TOTAL</span>
+              <span>$${data.total.toFixed(2)}</span>
+            </div>
+          </div>
+          <div class="ticket__footer">
+            ¡Gracias por su compra en el<br>
+            <strong>Comedor Señorial</strong>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('ticketDetalleBody').innerHTML = html;
+  }
   </script>
+
+  <!-- Modal Detalles -->
+  <div class="modal-overlay" id="modalDetalles">
+    <div class="modal-content" id="modalContentDetalles">
+      <div id="ticketDetalleBody"></div>
+      <div class="modal-actions" style="margin-top: 1rem; display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
+        <button onclick="imprimirTicketInventario()" style="background: var(--accent-primary); color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: bold; cursor: pointer;">🖨️ Imprimir</button>
+        <button onclick="editarOrden()" style="background: #e6a822; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: bold; cursor: pointer;">✏️ Editar</button>
+        <button onclick="cerrarModalDetalles()" style="background: #ccc; color: #333; border: none; padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: bold; cursor: pointer;">↩ Volver</button>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    @media print {
+        body * {
+            visibility: hidden;
+        }
+        #modalDetalles, #modalDetalles * {
+            visibility: visible;
+        }
+        #modalDetalles {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            background: transparent;
+        }
+        #modalContentDetalles {
+            box-shadow: none;
+            transform: none !important;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            max-width: 100%;
+        }
+        .modal-actions {
+            display: none !important;
+        }
+    }
+  </style>
+
 </body>
 </html>

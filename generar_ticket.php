@@ -75,9 +75,13 @@ if (empty($processedItems)) {
     exit;
 }
 
-// Generar número de orden (usar el secuencial del frontend, o random como fallback)
-if (isset($data['orderNumber']) && is_numeric($data['orderNumber'])) {
-    $orderNumber = 'Orden #' . intval($data['orderNumber']);
+if (isset($data['orderNumber']) && !empty($data['orderNumber'])) {
+    // If frontend explicitly provides an order number (e.g. when editing), use it
+    if (is_numeric($data['orderNumber'])) {
+        $orderNumber = 'Orden #' . intval($data['orderNumber']);
+    } else {
+        $orderNumber = htmlspecialchars($data['orderNumber']);
+    }
 }
 else {
     $orderNumber = 'ORD-' . str_pad(mt_rand(10000, 99999), 5, '0', STR_PAD_LEFT);

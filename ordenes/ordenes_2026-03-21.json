@@ -1,0 +1,96 @@
+[
+    {
+        "orderNumber": "Orden #13",
+        "date": "21\/03\/2026",
+        "time": "03:27 PM",
+        "customerName": "swdwdw",
+        "customerPhone": "",
+        "items": [
+            {
+                "id": "custom_1",
+                "name": "pollo,loroco,queso",
+                "emoji": "✏️",
+                "price": 2,
+                "qty": 1,
+                "total": 2,
+                "orderType": "Comer Aquí",
+                "masa": "maiz"
+            },
+            {
+                "id": "e2",
+                "name": "Tocino\/Queso",
+                "emoji": "🥓,🧀",
+                "price": 1.25,
+                "qty": 4,
+                "total": 5,
+                "orderType": "Comer Aquí",
+                "masa": "arroz"
+            },
+            {
+                "id": "bf39",
+                "name": "Golden",
+                "emoji": "🍺",
+                "price": 1.25,
+                "qty": 3,
+                "total": 3.75,
+                "orderType": "Comer Aquí",
+                "masa": null
+            }
+        ],
+        "subtotal": 10.75,
+        "total": 10.75,
+        "timestamp": "2026-03-21 15:27:08"
+    },
+    {
+        "orderNumber": "Orden #14",
+        "date": "21\/03\/2026",
+        "time": "04:05 PM",
+        "customerName": "josue",
+        "customerPhone": "",
+        "items": [
+            {
+                "id": "t2",
+                "name": "Frijol\/Queso",
+                "emoji": "🫘,🧀",
+                "price": 0.95,
+                "qty": 4,
+                "total": 3.8,
+                "orderType": "Comer Aquí",
+                "masa": "maiz"
+            },
+            {
+                "id": "t3",
+                "name": "Frijol",
+                "emoji": "🫘",
+                "price": 0.95,
+                "qty": 1,
+                "total": 0.95,
+                "orderType": "Comer Aquí",
+                "masa": "arroz"
+            },
+            {
+                "id": "t3",
+                "name": "Frijol",
+                "emoji": "🫘",
+                "price": 0.95,
+                "qty": 3,
+                "total": 2.8499999999999996,
+                "orderType": "Para Llevar",
+                "masa": "arroz"
+            },
+            {
+                "id": "e2",
+                "name": "Tocino\/Queso",
+                "emoji": "🥓,🧀",
+                "price": 1.25,
+                "qty": 3,
+                "total": 3.75,
+                "orderType": "Para Llevar",
+                "masa": "maiz"
+            }
+        ],
+        "subtotal": 11.35,
+        "total": 11.35,
+        "timestamp": "2026-03-21 16:05:25"
+    }
+]
