@@ -103,6 +103,11 @@ const MENU = {
     { id: 'bf52', name: 'Jugo del Valle Litro', emoji: '🧃', price: 1.50, sub: 'jugos y frescos' },
     { id: 'bf53', name: 'Jugo del Valle 2 Litros', emoji: '🧃', price: 2.00, sub: 'jugos y frescos' },
     { id: 'bf54', name: 'Red Bull Lata', emoji: '🔋', price: 1.25, sub: 'energéticas' },
+    { id: 'bf55', name: 'Gaseosa de sabores 2.5 lt', emoji: '🥤', price: 2.50, sub: 'gaseosas' },
+    { id: 'bf56', name: 'Energizante AMP', emoji: '🔋', price: 1.00, sub: 'energéticas' },
+    { id: 'bf57', name: 'Jugo Aloe vera', emoji: '🧃', price: 1.25, sub: 'jugos y frescos' },
+    { id: 'bf58', name: 'Agua Acqua', emoji: '💧', price: 0.60, sub: 'agua' },
+    { id: 'bf59', name: 'Cubata cerveza', emoji: '🍺', price: 1.25, sub: 'cervezas' },
   ],
   bebidasCalientes: [
     { id: 'bc1', name: 'Café', emoji: '🫖', price: 0.50 },
