@@ -26,6 +26,9 @@
       <button id="btnVolver" onclick="goBackToOrderType()"
         style="display:none; background: rgba(255,255,255,0.15); padding: 0.4rem 0.8rem; border-radius: 6px; color: white; font-weight: 700; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.3); cursor: pointer; font-family: 'Outfit', sans-serif;">⬅
         Volver</button>
+      <a href="admin_login.php"
+        style="background: rgba(255,255,255,0.1); padding: 0.4rem 0.8rem; border-radius: 6px; text-decoration: none; color: white; font-weight: 600; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.2);">⚙️
+        Panel Admin</a>
       <a href="inventario.php?logout=1"
         style="background: rgba(255,255,255,0.1); padding: 0.4rem 0.8rem; border-radius: 6px; text-decoration: none; color: white; font-weight: 600; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.2);">📊
         Inventario Diario</a>
