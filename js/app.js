@@ -5,8 +5,8 @@
  * ============================================
  */
 
-// === Menu Data — Comedor Señorial ===
-const MENU = {
+// === Menu Data — Comedor Señorial (Fallback / se reemplaza por BD) ===
+let MENU = {
   tradicionales: [
     { id: 't1', name: 'Revueltas', emoji: '🫓', price: 0.95 },
     { id: 't2', name: 'Frijol/Queso', emoji: '🫘,🧀', price: 0.95 },
@@ -78,7 +78,7 @@ const MENU = {
     { id: 'bf25', name: 'Pepsi o Mirinda plastica', emoji: '🥤', price: 0.75, sub: 'gaseosas', img: "https://www.bing.com/th/id/OIP.TRayWmSw-hq1pW2ygTT0gAHaK5?w=160&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2", },
     { id: 'bf26', name: 'Salutary plastica', emoji: '🥤', price: 0.75, sub: 'gaseosas', img: "https://lacolonia.vtexassets.com/arquivos/ids/248847-800-auto?v=638671089334830000&width=800&height=auto&aspect=true", },
     { id: 'bf50_salutary', name: 'Salutary pequeña', emoji: '🥤', price: 0.65, sub: 'gaseosas' },
-    { id: 'bf51', name: 'Salutary 1.5 litros', emoji: '🥤', price: 1.50, sub: 'gaseosas' },
+    { id: 'bf51_salutary', name: 'Salutary 1.5 litros', emoji: '🥤', price: 1.50, sub: 'gaseosas' },
     { id: 'bf27', name: 'Pepsi plastica pequeña', emoji: '🥤', price: 0.65, sub: 'gaseosas', img: "https://res.cloudinary.com/riqra/image/upload/v1678811229/sellers/13/ebdvbbx1vfinzeslgk26.jpg", },
     { id: 'bf28', name: 'Pepsi Lata', emoji: '🥤', price: 0.75, sub: 'gaseosas', img: 'https://www.bing.com/th/id/OIP.2gg274m6dp3ffTXbFILF7AHaHa?w=212&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2', },
     { id: 'bf29', name: 'Jugo de la Granja', emoji: '🧃', price: 1.25, sub: 'jugos y frescos', img: "https://latinfoodsatyourdoor.com/cdn/shop/files/jugo-de-naranja-de-la-granja.png?v=1747920030&width=1500", },
@@ -99,7 +99,7 @@ const MENU = {
     { id: 'bf44', name: 'Coca Cola 3 lt', emoji: '🥤', price: 3.00, sub: 'gaseosas', img: "https://www.bing.com/th/id/OIP.PL876p8XUtZezqUWRXNSdwHaHa?w=199&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2", },
     { id: 'bf45', name: 'Frutado Normal', emoji: '🥤', price: 0.75, sub: 'jugos y frescos', img: "https://th.bing.com/th/id/OIP.gDMALHNSBuy1epqx6OzLhQHaFj?w=220&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
     { id: 'bf50', name: 'Grapette Lata', emoji: '🥫', price: 0.75, sub: 'gaseosas' },
-    { id: 'bf51', name: 'Grapette Botella', emoji: '🥤', price: 0.60, sub: 'gaseosas' },
+    { id: 'bf51_grapette', name: 'Grapette Botella', emoji: '🥤', price: 0.60, sub: 'gaseosas' },
     { id: 'bf52', name: 'Jugo del Valle Litro', emoji: '🧃', price: 1.50, sub: 'jugos y frescos' },
     { id: 'bf53', name: 'Jugo del Valle 2 Litros', emoji: '🧃', price: 2.00, sub: 'jugos y frescos' },
     { id: 'bf54', name: 'Red Bull Lata', emoji: '🔋', price: 1.25, sub: 'energéticas' },
@@ -172,7 +172,28 @@ const customerPhoneInput = document.getElementById('customerPhone');
 const customerHoraInput = document.getElementById('customerHora');
 
 // === Initialize ===
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  // Intentar cargar menú desde la base de datos
+  try {
+    const menuRes = await fetch('obtener_menu.php');
+    const menuData = await menuRes.json();
+    if (menuData.success && menuData.menu) {
+      MENU = menuData.menu;
+      // Asegurar que los precios sean numéricos
+      for (const cat of Object.keys(MENU)) {
+        MENU[cat] = MENU[cat].map(item => ({
+          ...item,
+          price: parseFloat(item.price)
+        }));
+      }
+      console.log('✅ Menú cargado desde base de datos');
+    } else {
+      console.warn('⚠️ Usando menú local (fallback)');
+    }
+  } catch (e) {
+    console.warn('⚠️ No se pudo conectar al servidor, usando menú local:', e.message);
+  }
+
   renderMenu();
   updateSectionHeader();
   updateOrderUI();
