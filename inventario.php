@@ -642,6 +642,19 @@ $ventas_por_tipo = $stmtTypesItems->fetchAll(PDO::FETCH_ASSOC);
 
   </main>
 
+  <!-- Delete Confirmation Modal -->
+  <div class="modal-overlay" id="deleteConfirmModal">
+      <div class="admin-modal-box" style="text-align: center; max-width: 400px;">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">⚠️</div>
+          <h2 style="color: var(--text-primary); margin-bottom: 1rem;">¿Estás seguro?</h2>
+          <p id="deleteConfirmText" style="color: var(--text-muted); margin-bottom: 2rem;"></p>
+          <div class="modal-actions" style="justify-content: center; gap: 1rem;">
+              <button class="btn btn-secondary" onclick="closeDeleteModal()" style="background: var(--bg-secondary); color: var(--text-primary); padding: 0.8rem 2rem;">No, cancelar</button>
+              <button class="btn btn-danger" id="btnConfirmDelete" style="background: #e05555; padding: 0.8rem 2rem;">Sí, eliminar</button>
+          </div>
+      </div>
+  </div>
+
   <style>
     .btn-details-order {
         background: rgba(91, 143, 212, 0.15);
@@ -683,10 +696,23 @@ $ventas_por_tipo = $stmtTypesItems->fetchAll(PDO::FETCH_ASSOC);
   <script>
   let ordenActualEditId = null;
 
-  async function eliminarOrden(id, orderNum, total) {
-      if (!confirm(`¿Estás seguro de eliminar ${orderNum}?\nMonto: $${total.toFixed(2)}\n\nEsta acción restará el monto de los ingresos del día.`)) {
-          return;
-      }
+  let orderToDeleteId = null;
+
+  function eliminarOrden(id, orderNum, total) {
+      orderToDeleteId = id;
+      document.getElementById('deleteConfirmText').innerHTML = `¿Deseas eliminar la orden <strong>${orderNum}</strong>?<br><br>Monto: $${total.toFixed(2)}<br><small style="color:#e05555;">Esta acción restará el monto de los ingresos del día.</small>`;
+      document.getElementById('deleteConfirmModal').classList.add('visible');
+  }
+
+  function closeDeleteModal() {
+      document.getElementById('deleteConfirmModal').classList.remove('visible');
+      orderToDeleteId = null;
+  }
+
+  document.getElementById('btnConfirmDelete').addEventListener('click', async () => {
+      if (!orderToDeleteId) return;
+      const id = orderToDeleteId;
+      closeDeleteModal();
 
       const card = document.getElementById('orden-' + id);
       if (card) card.classList.add('deleting');
@@ -710,7 +736,7 @@ $ventas_por_tipo = $stmtTypesItems->fetchAll(PDO::FETCH_ASSOC);
           alert('Error de conexión al eliminar la orden.');
           if (card) card.classList.remove('deleting');
       }
-  }
+  });
 
   async function verDetallesOrden(id) {
       ordenActualEditId = id;

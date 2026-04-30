@@ -1186,20 +1186,18 @@ async function printTicket() {
       btn.innerHTML = '🖨️ Imprimiendo...';
   }
 
-  // Dar tiempo al DOM y animaciones para que el ticket esté visible antes de imprimir
-  setTimeout(() => {
-    try {
-      window.print();
-    } catch (e) {
-      console.error("Error al imprimir:", e);
-      showToast('⚠️ Error al abrir diálogo de impresión');
-    }
-    
-    if (btn) {
-        btn.disabled = false;
-        btn.innerHTML = '🖨️ Imprimir';
-    }
-  }, 300);
+  // Imprimir de forma síncrona para que el navegador no lo bloquee
+  try {
+    window.print();
+  } catch (e) {
+    console.error("Error al imprimir:", e);
+    showToast('⚠️ Error al abrir diálogo de impresión');
+  }
+  
+  if (btn) {
+      btn.disabled = false;
+      btn.innerHTML = '🖨️ Imprimir';
+  }
 
   // Guardar orden en BD automáticamente después de imprimir
   if (lastTicketData && !ticketAlreadySaved) {
