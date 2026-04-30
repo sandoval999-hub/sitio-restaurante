@@ -12,6 +12,7 @@ try {
     $menu = [
         "tradicionales" => [],
         "especiales" => [],
+        "comidas" => [],
         "tamalesYMas" => [],
         "bebidasFrias" => [],
         "bebidasCalientes" => []

@@ -35,6 +35,7 @@ let MENU = {
     { id: 'e7', name: 'Revuelta/Jalapeño', emoji: '🫓,🌶️', price: 1.25 },
     { id: 'e8', name: 'Revuelta/Queso', emoji: '🫓,🧀', price: 1.25 },
   ],
+  comidas: [],
   tamalesYMas: [
     { id: 'm1', name: 'Tamal de Pollo', emoji: '🫔,🐔', price: 1.00 },
     { id: 'm2', name: 'Tamal de Costilla', emoji: '🫔,🍖', price: 1.00 },

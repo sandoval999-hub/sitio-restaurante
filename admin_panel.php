@@ -291,12 +291,18 @@ $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <div class="form-group">
                     <label>Categoría</label>
                     <select id="p_categoria" name="categoria" required onchange="toggleSubcategoria()">
-                        <option value="tradicionales">Tradicionales</option>
-                        <option value="especiales">Especiales</option>
-                        <option value="comidas">Comidas</option>
-                        <option value="tamalesYMas">Tamales y Más</option>
-                        <option value="bebidasFrias">Bebidas Frías</option>
-                        <option value="bebidasCalientes">Bebidas Calientes</option>
+                        <?php
+                        $categorias = [
+                            'tradicionales' => '🫓 Pupusas Tradicionales',
+                            'especiales' => '⭐ Pupusas Especiales',
+                            'comidas' => '🍲 Comidas',
+                            'tamalesYMas' => '🫔 Tamales y Más',
+                            'bebidasFrias' => '🧊 Bebidas Frías',
+                            'bebidasCalientes' => '☕ Bebidas Calientes'
+                        ];
+                        foreach ($categorias as $key => $label): ?>
+                            <option value="<?= $key ?>"><?= $label ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
 
