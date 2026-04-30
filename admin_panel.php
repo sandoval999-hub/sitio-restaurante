@@ -79,8 +79,8 @@ $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <td><?= htmlspecialchars($p['nombre']) ?></td>
                     <td>$<?= number_format($p['precio'], 2) ?></td>
                     <td>
-                        <button class="btn btn-primary" style="padding: 5px 10px; font-size: 0.8rem;" onclick='editProduct(<?= json_encode($p) ?>)'>Editar</button>
-                        <button class="btn btn-danger" style="padding: 5px 10px; font-size: 0.8rem; margin-left: 5px;" onclick="deleteProduct('<?= htmlspecialchars($p['id']) ?>')">Eliminar</button>
+                        <button class="btn btn-primary" style="padding: 5px 10px; font-size: 0.8rem;" onclick="editProduct(<?= htmlspecialchars(json_encode($p), ENT_QUOTES, 'UTF-8') ?>)">Editar</button>
+                        <button class="btn btn-danger" style="padding: 5px 10px; font-size: 0.8rem; margin-left: 5px;" onclick="deleteProduct('<?= htmlspecialchars($p['id'], ENT_QUOTES, 'UTF-8') ?>')">Eliminar</button>
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -154,8 +154,8 @@ $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 
     <script>
-        const modal = document.getElementById('productModal');
-        const form = document.getElementById('productForm');
+        const modalEl = document.getElementById('productModal');
+        const productFormEl = document.getElementById('productForm');
 
         function toggleSubcategoria() {
             const cat = document.getElementById('p_categoria').value;
@@ -164,14 +164,14 @@ $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         function openModal() {
             document.getElementById('modalTitle').textContent = 'Agregar Nuevo Producto';
-            form.reset();
+            productFormEl.reset();
             document.getElementById('original_id').value = '';
             toggleSubcategoria();
-            modal.style.display = 'flex';
+            modalEl.style.display = 'flex';
         }
 
         function closeModal() {
-            modal.style.display = 'none';
+            modalEl.style.display = 'none';
         }
 
         function editProduct(p) {
@@ -184,12 +184,12 @@ $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
             document.getElementById('p_precio').value = p.precio;
             document.getElementById('p_emoji').value = p.emoji || '';
             toggleSubcategoria();
-            modal.style.display = 'flex';
+            modalEl.style.display = 'flex';
         }
 
         async function saveProduct(e) {
             e.preventDefault();
-            const formData = new FormData(form);
+            const formData = new FormData(productFormEl);
             const btnSave = document.getElementById('btnSave');
             btnSave.disabled = true;
             btnSave.textContent = 'Guardando...';
