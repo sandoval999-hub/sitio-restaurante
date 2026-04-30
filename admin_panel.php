@@ -293,6 +293,7 @@ $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <select id="p_categoria" name="categoria" required onchange="toggleSubcategoria()">
                         <option value="tradicionales">Tradicionales</option>
                         <option value="especiales">Especiales</option>
+                        <option value="comidas">Comidas</option>
                         <option value="tamalesYMas">Tamales y Más</option>
                         <option value="bebidasFrias">Bebidas Frías</option>
                         <option value="bebidasCalientes">Bebidas Calientes</option>

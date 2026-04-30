@@ -1493,6 +1493,65 @@ h5 {
   transform: none;
 }
 
+/* Number Bar for Pupusas */
+.number-bar-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+  padding: 0.3rem;
+  width: 100%;
+}
+
+.pupusa-number-bar {
+  display: flex;
+  overflow-x: auto;
+  gap: 0.25rem;
+  padding-bottom: 0.3rem;
+  width: 100%;
+  scrollbar-width: thin;
+}
+
+.pupusa-number-bar::-webkit-scrollbar {
+  height: 4px;
+}
+
+.pupusa-number-bar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.number-box {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.number-box:hover {
+  background: rgba(214, 54, 139, 0.2);
+  border-color: var(--accent-primary);
+}
+
+.number-box.active {
+  background: var(--accent-primary);
+  color: white;
+  border-color: var(--accent-primary);
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(214, 54, 139, 0.4);
+}
+
 /* Qty Badge Pill on Card (combined total for pupusas) */
 .qty-badge-pill {
   position: absolute;

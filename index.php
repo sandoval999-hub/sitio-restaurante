@@ -48,6 +48,9 @@
         <button class="category-tab" data-category="especiales" id="tab-especiales">
           ⭐ Especiales
         </button>
+        <button class="category-tab" data-category="comidas" id="tab-comidas">
+          🍲 Comidas
+        </button>
         <button class="category-tab" data-category="tamalesYMas" id="tab-tamalesYMas">
           🫔 Tamales y Más
         </button>

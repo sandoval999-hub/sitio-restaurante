@@ -124,6 +124,7 @@ let MENU = {
 const CATEGORY_INFO = {
   tradicionales: { icon: '🫓', label: 'Pupusas Tradicionales', badge: '$0.95 c/u' },
   especiales: { icon: '⭐', label: 'Pupusas Especiales', badge: '$1.25 c/u' },
+  comidas: { icon: '🍲', label: 'Comidas', badge: '' },
   tamalesYMas: { icon: '🫔', label: 'Tamales y Más', badge: '' },
   bebidasFrias: { icon: '🧊', label: 'Bebidas Frías', badge: '' },
   bebidasCalientes: { icon: '☕', label: 'Bebidas Calientes', badge: '' },
@@ -484,17 +485,17 @@ function renderMenu() {
           ${hasAnyOrder ? `<div class="qty-badge-pill">${combinedQty}</div>` : ''}
           <div class="dough-popup" id="dough-${item.id}">
             <span class="dough-popup__title">Tipo de masa:</span>
-            <div class="dough-row">
-              <button class="qty-btn remove dough-qty-btn" data-id="${item.id}" data-masa="maiz" data-action="remove" ${maizQty === 0 ? 'disabled' : ''}>−</button>
-              <span class="dough-label maiz-label">🌽 Maíz</span>
-              <span class="dough-qty-val" id="dqty-maiz-${item.id}">${maizQty}</span>
-              <button class="qty-btn add dough-qty-btn" data-id="${item.id}" data-masa="maiz" data-action="add">+</button>
+            <div class="dough-row number-bar-row">
+              <span class="dough-label maiz-label">🌽 Maíz <span class="dough-qty-val" id="dqty-maiz-${item.id}">${maizQty}</span></span>
+              <div class="pupusa-number-bar" data-id="${item.id}" data-masa="maiz" onclick="event.stopPropagation()">
+                ${Array.from({length: 51}, (_, i) => `<button type="button" class="number-box ${i === maizQty ? 'active' : ''}" data-val="${i}">${i}</button>`).join('')}
+              </div>
             </div>
-            <div class="dough-row">
-              <button class="qty-btn remove dough-qty-btn" data-id="${item.id}" data-masa="arroz" data-action="remove" ${arrozQty === 0 ? 'disabled' : ''}>−</button>
-              <span class="dough-label arroz-label">🍚 Arroz</span>
-              <span class="dough-qty-val" id="dqty-arroz-${item.id}">${arrozQty}</span>
-              <button class="qty-btn add dough-qty-btn" data-id="${item.id}" data-masa="arroz" data-action="add">+</button>
+            <div class="dough-row number-bar-row">
+              <span class="dough-label arroz-label">🍚 Arroz <span class="dough-qty-val" id="dqty-arroz-${item.id}">${arrozQty}</span></span>
+              <div class="pupusa-number-bar" data-id="${item.id}" data-masa="arroz" onclick="event.stopPropagation()">
+                ${Array.from({length: 51}, (_, i) => `<button type="button" class="number-box ${i === arrozQty ? 'active' : ''}" data-val="${i}">${i}</button>`).join('')}
+              </div>
             </div>
           </div>
         ` : `
@@ -562,35 +563,37 @@ function renderMenu() {
     });
   });
 
-  // Dough type +/- button click listeners (in-place update, no screen flash)
-  document.querySelectorAll('.dough-qty-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
+  // Dough type number box click listeners (in-place update, no screen flash)
+  document.querySelectorAll('.number-box').forEach(box => {
+    box.addEventListener('click', (e) => {
       e.stopPropagation();
-      const id = btn.dataset.id;
-      const masa = btn.dataset.masa;
-      const action = btn.dataset.action;
+      const bar = box.closest('.pupusa-number-bar');
+      const id = bar.dataset.id;
+      const masa = bar.dataset.masa;
+      const newQty = parseInt(box.dataset.val, 10);
       const item = findItem(id);
       if (!item) return;
 
       const key = `${id}__${activeOrderType.replace(/\s/g, '_')}__${masa}`;
       const masaLabel = masa === 'maiz' ? '🌽 Maíz' : '🍚 Arroz';
 
-      if (action === 'add') {
+      if (newQty > 0) {
         if (!order[key]) {
-          order[key] = { ...item, qty: 1, orderType: activeOrderType, masa: masa };
+          order[key] = { ...item, qty: newQty, orderType: activeOrderType, masa: masa };
           showToast(`✅ ${item.name} (${masaLabel})`);
         } else {
-          order[key].qty += 1;
+          order[key].qty = newQty;
         }
-      } else if (action === 'remove') {
+      } else {
         if (order[key]) {
-          order[key].qty -= 1;
-          if (order[key].qty <= 0) {
-            delete order[key];
-            showToast(`🗑️ ${item.name} (${masaLabel}) eliminada`);
-          }
+          delete order[key];
+          showToast(`🗑️ ${item.name} (${masaLabel}) eliminada`);
         }
       }
+
+      // Update active state on the boxes visually
+      bar.querySelectorAll('.number-box').forEach(b => b.classList.remove('active'));
+      box.classList.add('active');
 
       // In-place DOM update (no renderMenu = no screen flash)
       const maizKey = `${id}__${activeOrderType.replace(/\s/g, '_')}__maiz`;
@@ -604,15 +607,6 @@ function renderMenu() {
       const arrozQtyEl = document.getElementById(`dqty-arroz-${id}`);
       if (maizQtyEl) maizQtyEl.textContent = maizQty;
       if (arrozQtyEl) arrozQtyEl.textContent = arrozQty;
-
-      // Update disabled state of minus buttons
-      const popup = document.getElementById(`dough-${id}`);
-      if (popup) {
-        const maizRm = popup.querySelector('[data-masa="maiz"][data-action="remove"]');
-        const arrozRm = popup.querySelector('[data-masa="arroz"][data-action="remove"]');
-        if (maizRm) maizRm.disabled = maizQty === 0;
-        if (arrozRm) arrozRm.disabled = arrozQty === 0;
-      }
 
       // Update badge pill on card
       const card = document.getElementById(`menu-${id}`);
@@ -1181,54 +1175,31 @@ function closeModal() {
   modalOverlay.classList.remove('visible');
   document.body.style.overflow = '';
 
-  // Si había un ticket generado, limpiar todo para nueva orden
-  if (lastTicketData) {
-    order = {};
-    activeOrderType = null;
-    lastTicketData = null;
-    ticketAlreadySaved = false;
-    
-    // Clear editing state
-    editingOrderId = null;
-    editingOrderNumber = null;
-    const subtitle = document.getElementById('headerSubtitle');
-    if (subtitle) {
-        subtitle.innerHTML = 'Pupusería — Sistema de Órdenes';
-        subtitle.style.color = 'var(--text-muted)';
-    }
-    
-    // Quitar param de URL si existe
-    if (window.history.replaceState) {
-        const url = new URL(window.location);
-        url.searchParams.delete('edit_order');
-        window.history.replaceState({}, '', url);
-    }
-
-    // Limpiar campos de cliente
-    customerNameInput.value = '';
-    customerPhoneInput.value = '';
-    customerHoraInput.value = '';
-
-    // Reset categoría a Tradicionales
-    activeCategory = 'tradicionales';
-    activeSubcategory = null;
-    document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
-    document.getElementById('tab-tradicionales').classList.add('active');
-
-    // Mostrar selector de tipo de orden de nuevo
-    document.querySelectorAll('.order-type__btn').forEach(b => b.classList.remove('active'));
-    const orderTypeHeader = document.querySelector('.order-type');
-    if (orderTypeHeader) orderTypeHeader.style.display = 'block';
-
-    renderMenu();
-    updateSectionHeader();
-    updateOrderUI();
-    showToast('🔄 Campos limpiados — listo para nueva orden');
-  }
+  // Volver no hace nada más que ocultar el modal
+  // El usuario puede seguir editando la orden.
 }
 
 async function printTicket() {
-  window.print();
+  const btn = document.getElementById('btnPrint');
+  if (btn) {
+      btn.disabled = true;
+      btn.innerHTML = '🖨️ Imprimiendo...';
+  }
+
+  // Dar tiempo al DOM y animaciones para que el ticket esté visible antes de imprimir
+  setTimeout(() => {
+    try {
+      window.print();
+    } catch (e) {
+      console.error("Error al imprimir:", e);
+      showToast('⚠️ Error al abrir diálogo de impresión');
+    }
+    
+    if (btn) {
+        btn.disabled = false;
+        btn.innerHTML = '🖨️ Imprimir';
+    }
+  }, 300);
 
   // Guardar orden en BD automáticamente después de imprimir
   if (lastTicketData && !ticketAlreadySaved) {
@@ -1249,6 +1220,13 @@ async function printTicket() {
       showToast('⚠️ No se pudo guardar en inventario');
     }
   }
+
+  // Después de imprimir (y guardar), limpiar para una nueva orden automáticamente
+  setTimeout(() => {
+    lastTicketData = null;
+    ticketAlreadySaved = false;
+    newOrder();
+  }, 500);
 }
 
 function newOrder() {
