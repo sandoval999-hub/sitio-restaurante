@@ -262,7 +262,7 @@ $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <td>$<?= number_format($p['precio'], 2) ?></td>
                     <td>
                         <button class="btn btn-primary" style="padding: 5px 10px; font-size: 0.8rem;" onclick='editProduct(<?= json_encode($p, JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_TAG | JSON_HEX_AMP) ?>)'>Editar</button>
-                        <button class="btn btn-danger" style="padding: 5px 10px; font-size: 0.8rem; margin-left: 5px;" onclick="deleteProduct('<?= htmlspecialchars($p['id'], ENT_QUOTES, 'UTF-8') ?>')">Eliminar</button>
+                        <button class="btn btn-danger" style="padding: 5px 10px; font-size: 0.8rem; margin-left: 5px;" onclick="deleteProduct('<?= htmlspecialchars($p['id'], ENT_QUOTES, 'UTF-8') ?>', '<?= htmlspecialchars($p['nombre'], ENT_QUOTES, 'UTF-8') ?>')">Eliminar</button>
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -552,20 +552,72 @@ $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
             }
         }
 
-        async function deleteProduct(id) {
-            if (confirm('¿Estás seguro de que deseas eliminar este producto?')) {
+        async function deleteProduct(id, nombre) {
+            showDeleteConfirm(id, nombre);
+        }
+
+        // ========== CUSTOM CONFIRM MODAL ==========
+        function showDeleteConfirm(id, nombre) {
+            // Remove any existing confirm modal
+            const existing = document.getElementById('deleteConfirmModal');
+            if (existing) existing.remove();
+
+            const overlay = document.createElement('div');
+            overlay.id = 'deleteConfirmModal';
+            overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.75);backdrop-filter:blur(8px);z-index:99999;display:flex;justify-content:center;align-items:center;opacity:0;transition:opacity 0.3s;';
+            overlay.innerHTML = `
+                <div style="background:var(--bg-secondary);padding:30px;border-radius:16px;width:100%;max-width:420px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.5);animation:adminModalIn 0.3s ease;">
+                    <div style="font-size:3rem;margin-bottom:12px;">⚠️</div>
+                    <h3 style="color:var(--text-primary);margin-bottom:10px;font-size:1.2rem;">¿Estás seguro de eliminar este producto?</h3>
+                    <p style="color:var(--text-secondary);margin-bottom:24px;font-size:1rem;">Se eliminará <strong style="color:var(--accent-gold);">${nombre || id}</strong> de forma permanente.</p>
+                    <div style="display:flex;gap:12px;justify-content:center;">
+                        <button id="confirmDeleteNo" class="btn" style="padding:10px 30px;background:var(--bg-glass);color:var(--text-primary);border:1px solid var(--border-subtle);font-size:1rem;min-width:100px;">No</button>
+                        <button id="confirmDeleteYes" class="btn btn-danger" style="padding:10px 30px;font-size:1rem;min-width:100px;">Sí, Eliminar</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(overlay);
+            requestAnimationFrame(() => { overlay.style.opacity = '1'; });
+
+            // Close on "No"
+            overlay.querySelector('#confirmDeleteNo').addEventListener('click', () => {
+                overlay.style.opacity = '0';
+                setTimeout(() => overlay.remove(), 300);
+            });
+
+            // Close on backdrop click
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    overlay.style.opacity = '0';
+                    setTimeout(() => overlay.remove(), 300);
+                }
+            });
+
+            // Confirm delete on "Sí"
+            overlay.querySelector('#confirmDeleteYes').addEventListener('click', async () => {
+                const btnYes = overlay.querySelector('#confirmDeleteYes');
+                btnYes.disabled = true;
+                btnYes.textContent = 'Eliminando...';
                 try {
-                    const res = await fetch('eliminar_producto.php?id=' + id);
+                    const res = await fetch('eliminar_producto.php?id=' + encodeURIComponent(id));
                     const data = await res.json();
                     if (data.success) {
-                        location.reload();
+                        overlay.style.opacity = '0';
+                        setTimeout(() => {
+                            overlay.remove();
+                            location.reload();
+                        }, 300);
                     } else {
                         alert('Error: ' + data.error);
+                        btnYes.disabled = false;
+                        btnYes.textContent = 'Sí, Eliminar';
                     }
                 } catch (err) {
                     alert('Error de conexión');
+                    btnYes.disabled = false;
+                    btnYes.textContent = 'Sí, Eliminar';
                 }
-            }
+            });
         }
     </script>
 </body>

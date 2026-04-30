@@ -100,10 +100,9 @@
           <input type="tel" id="customerPhone" class="customer-input" placeholder="0000-0000">
         </div>
         <div class="customer-field">
-          <label for="customerHora" class="customer-label">🕐 Hora deseada <span
+          <label for="customerHora" class="customer-label">📍 Puntos de referencia <span
               class="optional">(opcional)</span></label>
-          <input type="text" id="customerHora" class="customer-input" placeholder="Ej: 12:30" maxlength="5"
-            inputmode="numeric">
+          <input type="text" id="customerHora" class="customer-input" placeholder="Ej: Casa esquina azul, calle 5" maxlength="30">
         </div>
       </div>
 

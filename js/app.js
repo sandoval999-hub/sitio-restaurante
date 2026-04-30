@@ -256,9 +256,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   customerPhoneInput.setAttribute('pattern', '[0-9]*');
   customerPhoneInput.setAttribute('inputmode', 'numeric');
 
-  // Hora deseada validation: only digits and colon, max 5 (HH:MM)
+  // Puntos de referencia validation: any characters, max 30
   customerHoraInput.addEventListener('input', (e) => {
-    e.target.value = e.target.value.replace(/[^0-9:]/g, '').slice(0, 5);
+    e.target.value = e.target.value.slice(0, 30);
   });
 });
 
@@ -1105,7 +1105,7 @@ function renderTicket(data) {
       <div class="ticket__customer">
         <span class="ticket__customer-name">👤 ${data.customerName}</span>
         ${data.customerPhone ? `<span class="ticket__customer-phone">📱 ${data.customerPhone}</span>` : ''}
-        ${data.customerHora ? `<span class="ticket__customer-phone">🕐 Hora deseada: ${data.customerHora.length === 4 ? data.customerHora.slice(0, 2) + ':' + data.customerHora.slice(2) : data.customerHora}</span>` : ''}
+        ${data.customerHora ? `<span class="ticket__customer-phone">📍 Ref: ${data.customerHora}</span>` : ''}
       </div>
       ${data.llevarNumber ? `
       <div class="ticket__llevar-badge">
