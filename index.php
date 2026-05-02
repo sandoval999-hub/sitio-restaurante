@@ -139,10 +139,7 @@
       </div>
 
       <div class="order-items" id="orderItems">
-        <div class="order-empty">
-          <span class="order-empty__icon">📋</span>
-          <span class="order-empty__text">No hay items en la orden.<br>Selecciona del menú para comenzar.</span>
-        </div>
+        <!-- Rendered by JS -->
       </div>
 
       <div class="order-footer">

@@ -860,12 +860,7 @@ function updateOrderUI() {
 
   // Render order items
   if (entries.length === 0) {
-    orderItemsContainer.innerHTML = `
-      <div class="order-empty">
-        <span class="order-empty__icon">📋</span>
-        <span class="order-empty__text">No hay items en la orden.<br>Selecciona del menú para comenzar.</span>
-      </div>
-    `;
+    orderItemsContainer.innerHTML = '';
     return;
   }
 
