@@ -1238,7 +1238,6 @@ function renderTicket(data) {
       </div>
       <div class="ticket__footer">
         ¡Gracias por su compra!<br>
-        <strong>Comedor Señorial</strong><br>
         Contáctanos al 7631-9863
       </div>
     </div>
