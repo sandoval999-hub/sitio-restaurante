@@ -1237,8 +1237,9 @@ function renderTicket(data) {
         </span>
       </div>
       <div class="ticket__footer">
-        ¡Gracias por su compra en el<br>
-        <strong>Comedor Señorial</strong>
+        ¡Gracias por su compra!<br>
+        <strong>Comedor Señorial</strong><br>
+        Contáctanos al 7631-9863
       </div>
     </div>
   `;
