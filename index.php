@@ -143,10 +143,6 @@
       </div>
 
       <div class="order-footer">
-        <div class="order-total">
-          <span class="order-total__label">Total</span>
-          <span class="order-total__value" id="orderTotal">$0.00</span>
-        </div>
         <div class="order-footer__buttons">
           <button class="btn-details" id="btnDetails" disabled onclick="showOrderDetails()">
             📋 Ver Detalles

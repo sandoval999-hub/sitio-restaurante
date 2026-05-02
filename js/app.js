@@ -871,7 +871,9 @@ function updateOrderUI() {
   orderCountEl.classList.add('bump');
 
   // Update total
-  orderTotalEl.textContent = `$${totalPrice.toFixed(2)}`;
+  if (orderTotalEl) {
+    orderTotalEl.textContent = `$${totalPrice.toFixed(2)}`;
+  }
 
   // Show/hide payment status and delivery fee sections
   if (paymentStatusSection) {
@@ -898,15 +900,6 @@ function updateOrderUI() {
         <div class="order-item__name">${item.name}${item.flavor ? ` - <span style="color:var(--accent-primary)">${item.flavor}</span>` : ''}${item.masa ? ` <span class="order-item__masa">${item.masa === 'maiz' ? '🌽' : '🍚'} ${item.masa === 'maiz' ? 'Maíz' : 'Arroz'}</span>` : ''}</div>
         <div class="order-item__detail">$${item.price.toFixed(2)} c/u</div>
       </div>
-      ${activeOrderType === 'Comer Aquí' ? `
-      <button class="order-item__type-badge" onclick="cycleItemType('${key}')" title="Click para cambiar tipo">
-        ${TYPE_EMOJIS[item.orderType] || '🍽️'} ${item.orderType || 'Comer Aquí'}
-      </button>
-      ` : `
-      <div class="order-item__type-badge" style="cursor:default; background:transparent; border-color:transparent; opacity:0.8;">
-        ${TYPE_EMOJIS[item.orderType] || '🍽️'} ${item.orderType || activeOrderType}
-      </div>
-      `}
       <div class="order-item__qty-controls">
         <button class="qty-btn remove" onclick="changeQtyByKey('${key}', -1)">−</button>
         <span class="order-item__qty">${item.qty}</span>
