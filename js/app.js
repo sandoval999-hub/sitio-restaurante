@@ -157,6 +157,14 @@ let editingOrderNumber = null; // original order number when editing
 let paymentStatus = 'Pendiente'; // 'Pagado' or 'Pendiente'
 let deliveryFee = 0; // delivery charge for Domicilio orders
 
+window.updateFlavor = function(itemId, flavorText) {
+  const typeKey = `${itemId}__${activeOrderType.replace(/\s/g, '_')}`;
+  if (order[typeKey]) {
+    order[typeKey].flavor = flavorText;
+    updateOrderUI();
+  }
+};
+
 // === DOM References ===
 const menuGrid = document.getElementById('menuGrid');
 const orderItemsContainer = document.getElementById('orderItems');
@@ -502,11 +510,13 @@ function renderMenu() {
     const combinedQty = maizQty + arrozQty;
     const hasAnyOrder = isPupusaCategory ? combinedQty > 0 : !!order[typeKey];
     const isActiveForType = hasAnyOrder;
+    const isFresco = item.name.toLowerCase().includes('fresco natural');
     return `
       <div class="menu-item ${isActiveForType ? 'active' : ''}" data-id="${item.id}" id="menu-${item.id}">
         ${item.img ? `<img class="menu-item__img" src="${item.img}" alt="${item.name}" loading="lazy">` : `<span class="menu-item__emoji">${item.emoji}</span>`}
         <span class="menu-item__name">${item.name}</span>
         <span class="menu-item__price">$${item.price.toFixed(2)}</span>
+        ${isFresco ? `<input type="text" id="flavor-${item.id}" class="fresco-flavor-input" placeholder="Sabor (Ej: Arrayán)" onclick="event.stopPropagation()" oninput="updateFlavor('${item.id}', this.value)" value="${hasAnyOrder ? (order[typeKey].flavor || '') : ''}">` : ''}
         ${isPupusaCategory ? `
           ${hasAnyOrder ? `<div class="qty-badge-pill">${combinedQty}</div>` : ''}
           <div class="dough-popup" id="dough-${item.id}">
@@ -570,9 +580,15 @@ function renderMenu() {
         popup.classList.toggle('visible');
       } else {
         const key = getOrderKey(id);
+        const flavorEl = document.getElementById(`flavor-${id}`);
+        const flavorVal = flavorEl ? flavorEl.value.trim() : null;
+
         if (!order[key]) {
           order[key] = { ...item, qty: 1, orderType: activeOrderType };
+          if (flavorVal) order[key].flavor = flavorVal;
           showToast(`✅ ${item.name} (${activeOrderType})`);
+        } else if (flavorVal && !order[key].flavor) {
+          order[key].flavor = flavorVal;
         }
 
         // In-place DOM update instead of renderMenu()
@@ -710,11 +726,13 @@ function renderMenu() {
       const itemsHTML = filteredItems.map(item => {
         const typeKey = `${item.id}__${activeOrderType.replace(/\s/g, '_')}`;
         const hasAnyOrder = !!order[typeKey];
+        const isFresco = item.name.toLowerCase().includes('fresco natural');
         return `
           <div class="menu-item ${hasAnyOrder ? 'active' : ''}" data-id="${item.id}" id="menu-${item.id}">
             ${item.img ? `<img class="menu-item__img" src="${item.img}" alt="${item.name}" loading="lazy">` : `<span class="menu-item__emoji">${item.emoji}</span>`}
             <span class="menu-item__name">${item.name}</span>
             <span class="menu-item__price">$${item.price.toFixed(2)}</span>
+            ${isFresco ? `<input type="text" id="flavor-${item.id}" class="fresco-flavor-input" placeholder="Sabor (Ej: Arrayán)" onclick="event.stopPropagation()" oninput="updateFlavor('${item.id}', this.value)" value="${hasAnyOrder ? (order[typeKey].flavor || '') : ''}">` : ''}
             <div class="qty-selector ${hasAnyOrder ? 'visible' : ''}" id="qty-${item.id}">
               <button class="qty-btn remove" onclick="event.stopPropagation(); changeQty('${item.id}', -1)">−</button>
               <span class="qty-display" id="qtyVal-${item.id}">${hasAnyOrder ? order[typeKey].qty : 0}</span>
@@ -732,9 +750,15 @@ function renderMenu() {
           const item = findItem(id);
           if (!item) return;
           const key = `${id}__${activeOrderType.replace(/\s/g, '_')}`;
+          const flavorEl = document.getElementById(`flavor-${id}`);
+          const flavorVal = flavorEl ? flavorEl.value.trim() : null;
+
           if (!order[key]) {
             order[key] = { ...item, qty: 1, orderType: activeOrderType };
+            if (flavorVal) order[key].flavor = flavorVal;
             showToast(`✅ ${item.name} (${activeOrderType})`);
+          } else if (flavorVal && !order[key].flavor) {
+            order[key].flavor = flavorVal;
           }
           const qtyValEl = document.getElementById(`qtyVal-${id}`);
           const qtySelectorEl = document.getElementById(`qty-${id}`);
@@ -795,8 +819,11 @@ function changeQty(id, delta) {
   } else {
     if (!order[baseKey]) {
       const item = findItem(id);
+      const flavorEl = document.getElementById(`flavor-${id}`);
+      const flavorVal = flavorEl ? flavorEl.value.trim() : null;
       if (item && delta > 0) {
         order[baseKey] = { ...item, qty: 1, orderType: activeOrderType };
+        if (flavorVal) order[baseKey].flavor = flavorVal;
       }
     } else {
       order[baseKey].qty += delta;
@@ -868,7 +895,7 @@ function updateOrderUI() {
     <div class="order-item" id="order-${key}">
       <span class="order-item__emoji">${item.emoji}</span>
       <div class="order-item__info">
-        <div class="order-item__name">${item.name}${item.masa ? ` <span class="order-item__masa">${item.masa === 'maiz' ? '🌽' : '🍚'} ${item.masa === 'maiz' ? 'Maíz' : 'Arroz'}</span>` : ''}</div>
+        <div class="order-item__name">${item.name}${item.flavor ? ` - <span style="color:var(--accent-primary)">${item.flavor}</span>` : ''}${item.masa ? ` <span class="order-item__masa">${item.masa === 'maiz' ? '🌽' : '🍚'} ${item.masa === 'maiz' ? 'Maíz' : 'Arroz'}</span>` : ''}</div>
         <div class="order-item__detail">$${item.price.toFixed(2)} c/u</div>
       </div>
       ${activeOrderType === 'Comer Aquí' ? `
@@ -1012,8 +1039,13 @@ function getNextLlevarNumber() {
 
 // === Generate Ticket ===
 async function generateTicket() {
-  const entries = Object.values(order);
-  if (entries.length === 0) return;
+  const entriesRaw = Object.values(order);
+  if (entriesRaw.length === 0) return;
+
+  const entries = entriesRaw.map(e => ({
+    ...e,
+    name: e.flavor ? `${e.name} - ${e.flavor}` : e.name
+  }));
 
   // Validate customer name
   const customerName = customerNameInput.value.trim();

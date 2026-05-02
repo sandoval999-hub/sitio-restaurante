@@ -584,6 +584,27 @@ h5 {
   color: var(--accent-primary);
 }
 
+/* === Fresco Flavor Input === */
+.fresco-flavor-input {
+  width: 100%;
+  margin-top: 0.4rem;
+  padding: 0.35rem 0.5rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+}
+
+.fresco-flavor-input:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  background: white;
+  box-shadow: 0 0 0 2px rgba(214, 54, 139, 0.1);
+}
+
 /* === Quantity Selector (appears on click) === */
 .qty-selector {
   display: none;
