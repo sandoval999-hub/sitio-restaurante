@@ -37,6 +37,10 @@ try {
     CREATE INDEX IF NOT EXISTS idx_ordenes_fecha ON ordenes(order_date);
     CREATE INDEX IF NOT EXISTS idx_orden_items_orden_id ON orden_items(orden_id);
     ");
+
+    // Add new columns if they don't exist yet
+    try { $pdo->exec("ALTER TABLE ordenes ADD COLUMN payment_status TEXT DEFAULT 'Pendiente'"); } catch (Exception $e) { /* column already exists */ }
+    try { $pdo->exec("ALTER TABLE ordenes ADD COLUMN delivery_fee REAL DEFAULT 0"); } catch (Exception $e) { /* column already exists */ }
 } catch (PDOException $e) {
     // Si hay error de conexión a la BD, podemos logearlo o terminar
     // file_put_contents('db_error.log', $e->getMessage() . "\n", FILE_APPEND);

@@ -123,6 +123,21 @@
       </div>
 
 
+      <!-- Payment Status Toggle -->
+      <div class="payment-status-section" id="paymentStatusSection" style="display:none;">
+        <label class="customer-label">💳 Estado de Pago</label>
+        <div class="payment-toggle">
+          <button type="button" class="payment-toggle__btn active" id="btnPendiente" data-status="Pendiente">🕐 Pendiente</button>
+          <button type="button" class="payment-toggle__btn" id="btnPagado" data-status="Pagado">✅ Pagado</button>
+        </div>
+      </div>
+
+      <!-- Delivery Fee (only visible for Domicilio) -->
+      <div class="delivery-fee-section" id="deliveryFeeSection" style="display:none;">
+        <label for="deliveryFee" class="customer-label">🛵 Cobro de Domicilio ($)</label>
+        <input type="number" id="deliveryFee" class="customer-input" placeholder="0.00" step="0.25" min="0" value="">
+      </div>
+
       <div class="order-items" id="orderItems">
         <div class="order-empty">
           <span class="order-empty__icon">📋</span>

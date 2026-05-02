@@ -35,6 +35,8 @@ $subtotal = floatval($data['subtotal'] ?? 0);
 $total = floatval($data['total'] ?? 0);
 $date = $data['date'] ?? '';
 $time = $data['time'] ?? '';
+$paymentStatus = htmlspecialchars(trim($data['paymentStatus'] ?? 'Pendiente'));
+$deliveryFee = floatval($data['deliveryFee'] ?? 0);
 
 // Convertir fecha de dd/mm/YYYY a YYYY-mm-dd para la BD
 $timezone = new DateTimeZone('America/El_Salvador');
@@ -47,17 +49,16 @@ try {
     if (isset($data['editingOrderId']) && is_numeric($data['editingOrderId'])) {
         $orden_id = intval($data['editingOrderId']);
         // Actualizar Orden
-        $stmt = $pdo->prepare("UPDATE ordenes SET customer_name = ?, customer_phone = ?, subtotal = ?, total = ? WHERE id = ?");
-        // Nota: Mantenemos el order_number original, order_date y order_time. Si se quisiera actualizar el order_number (ej. si cambió a Para Llevar), se haría aquí. Según requerimiento, se mantiene el número (Para llevar) o nombre original.
-        $stmt->execute([$customerName, $customerPhone, $subtotal, $total, $orden_id]);
+        $stmt = $pdo->prepare("UPDATE ordenes SET customer_name = ?, customer_phone = ?, subtotal = ?, total = ?, payment_status = ?, delivery_fee = ? WHERE id = ?");
+        $stmt->execute([$customerName, $customerPhone, $subtotal, $total, $paymentStatus, $deliveryFee, $orden_id]);
         
         // Eliminar items anteriores
         $stmtDel = $pdo->prepare("DELETE FROM orden_items WHERE orden_id = ?");
         $stmtDel->execute([$orden_id]);
     } else {
         // Insertar Orden
-        $stmt = $pdo->prepare("INSERT INTO ordenes (order_number, customer_name, customer_phone, subtotal, total, order_date, order_time) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        $stmt->execute([$orderNumber, $customerName, $customerPhone, $subtotal, $total, $orderDate, $time]);
+        $stmt = $pdo->prepare("INSERT INTO ordenes (order_number, customer_name, customer_phone, subtotal, total, order_date, order_time, payment_status, delivery_fee) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->execute([$orderNumber, $customerName, $customerPhone, $subtotal, $total, $orderDate, $time, $paymentStatus, $deliveryFee]);
         $orden_id = $pdo->lastInsertId();
     }
 

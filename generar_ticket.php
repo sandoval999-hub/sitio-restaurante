@@ -94,7 +94,9 @@ $date = $now->format('d/m/Y');
 $time = $now->format('h:i A');
 
 // Calcular total
-$total = $subtotal;
+$deliveryFee = isset($data['deliveryFee']) ? floatval($data['deliveryFee']) : 0;
+$paymentStatus = isset($data['paymentStatus']) ? htmlspecialchars($data['paymentStatus']) : 'Pendiente';
+$total = $subtotal + $deliveryFee;
 
 // Guardar orden en archivo de log (opcional, para registro)
 $logDir = __DIR__ . '/ordenes';
@@ -143,5 +145,7 @@ echo json_encode([
     'items' => $processedItems,
     'subtotal' => $subtotal,
     'total' => $total,
-    'llevarNumber' => $llevarNumber
+    'llevarNumber' => $llevarNumber,
+    'paymentStatus' => $paymentStatus,
+    'deliveryFee' => $deliveryFee
 ], JSON_UNESCAPED_UNICODE);

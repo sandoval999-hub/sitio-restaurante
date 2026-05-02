@@ -154,6 +154,8 @@ let ticketAlreadySaved = false; // prevents double-saving the same ticket
 let beverageSearchTerm = ''; // search filter for bebidasFrias
 let editingOrderId = null; // if we are currently editing an existing order
 let editingOrderNumber = null; // original order number when editing
+let paymentStatus = 'Pendiente'; // 'Pagado' or 'Pendiente'
+let deliveryFee = 0; // delivery charge for Domicilio orders
 
 // === DOM References ===
 const menuGrid = document.getElementById('menuGrid');
@@ -172,6 +174,11 @@ const orderTypeSelect = document.getElementById('orderTypeSelect');
 const customerNameInput = document.getElementById('customerName');
 const customerPhoneInput = document.getElementById('customerPhone');
 const customerHoraInput = document.getElementById('customerHora');
+const paymentStatusSection = document.getElementById('paymentStatusSection');
+const deliveryFeeSection = document.getElementById('deliveryFeeSection');
+const deliveryFeeInput = document.getElementById('deliveryFee');
+const btnPagado = document.getElementById('btnPagado');
+const btnPendiente = document.getElementById('btnPendiente');
 
 // === Initialize ===
 document.addEventListener('DOMContentLoaded', async () => {
@@ -236,6 +243,24 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Buttons
   btnTicket.addEventListener('click', generateTicket);
   btnClear.addEventListener('click', clearOrder);
+
+  // Payment status toggle
+  document.querySelectorAll('.payment-toggle__btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.payment-toggle__btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      paymentStatus = btn.dataset.status;
+      showToast(paymentStatus === 'Pagado' ? '✅ Marcado como PAGADO' : '🕐 Marcado como PENDIENTE');
+    });
+  });
+
+  // Delivery fee input
+  if (deliveryFeeInput) {
+    deliveryFeeInput.addEventListener('input', () => {
+      deliveryFee = parseFloat(deliveryFeeInput.value) || 0;
+      updateOrderUI();
+    });
+  }
 
   // Modal close
   modalOverlay.addEventListener('click', (e) => {
@@ -806,7 +831,11 @@ function changeQty(id, delta) {
 function updateOrderUI() {
   const entries = Object.values(order);
   const totalItems = entries.reduce((sum, item) => sum + item.qty, 0);
-  const totalPrice = entries.reduce((sum, item) => sum + (item.price * item.qty), 0);
+  const itemsPrice = entries.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+  // Calculate delivery fee (only if Domicilio is active)
+  const currentDeliveryFee = (activeOrderType === 'Domicilio') ? deliveryFee : 0;
+  const totalPrice = itemsPrice + currentDeliveryFee;
 
   // Update count badge
   orderCountEl.textContent = totalItems;
@@ -816,6 +845,14 @@ function updateOrderUI() {
 
   // Update total
   orderTotalEl.textContent = `$${totalPrice.toFixed(2)}`;
+
+  // Show/hide payment status and delivery fee sections
+  if (paymentStatusSection) {
+    paymentStatusSection.style.display = activeOrderType ? 'block' : 'none';
+  }
+  if (deliveryFeeSection) {
+    deliveryFeeSection.style.display = (activeOrderType === 'Domicilio') ? 'block' : 'none';
+  }
 
   // Enable/disable buttons
   btnTicket.disabled = entries.length === 0;
@@ -1014,15 +1051,22 @@ async function generateTicket() {
         llevarNum = isLlevar ? getNextLlevarNumber() : null;
     }
     
+    // Calculate delivery fee for this ticket
+    const currentDeliveryFee = (activeOrderType === 'Domicilio') ? deliveryFee : 0;
+
     const response = await fetch('generar_ticket.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ items: entries, customerName, customerPhone, customerHora, llevarNumber: llevarNum, orderNumber: finalOrderNumber })
+      body: JSON.stringify({ items: entries, customerName, customerPhone, customerHora, llevarNumber: llevarNum, orderNumber: finalOrderNumber, deliveryFee: currentDeliveryFee, paymentStatus })
     });
 
     const data = await response.json();
 
     if (data.success) {
+      // Inject client-side fields that PHP echoes back
+      data.paymentStatus = paymentStatus;
+      data.deliveryFee = currentDeliveryFee;
+
       // Preparar datos para guardar en BD al imprimir
       lastTicketData = {
         orderNumber: data.orderNumber,
@@ -1033,7 +1077,9 @@ async function generateTicket() {
         date: data.date,
         time: data.time,
         items: data.items,
-        editingOrderId: editingOrderId
+        editingOrderId: editingOrderId,
+        paymentStatus: paymentStatus,
+        deliveryFee: currentDeliveryFee
       };
       ticketAlreadySaved = false;
       renderTicket(data);
@@ -1055,6 +1101,7 @@ async function generateTicket() {
 // === Fallback Local Ticket Generation ===
 function generateTicketLocal(entries, customerName, customerPhone) {
   const subtotal = entries.reduce((sum, item) => sum + (item.price * item.qty), 0);
+  const currentDeliveryFee = (activeOrderType === 'Domicilio') ? deliveryFee : 0;
   const now = new Date();
   // Only Para Llevar gets a sequential order number (1-100)
   const isLlevar = activeOrderType === 'Para Llevar';
@@ -1066,11 +1113,13 @@ function generateTicketLocal(entries, customerName, customerPhone) {
     time: now.toLocaleTimeString('es-SV', { hour: '2-digit', minute: '2-digit' }),
     items: entries,
     subtotal: subtotal,
-    total: subtotal,
+    total: subtotal + currentDeliveryFee,
     customerName: customerName,
     customerPhone: customerPhone,
     customerHora: customerHoraInput.value.trim(),
-    llevarNumber: llevarNum
+    llevarNumber: llevarNum,
+    paymentStatus: paymentStatus,
+    deliveryFee: currentDeliveryFee
   };
 }
 
@@ -1141,6 +1190,9 @@ function renderTicket(data) {
     }
   }
 
+  // Delivery fee line (if applicable)
+  const ticketDeliveryFee = data.deliveryFee || 0;
+
   html += `
       <hr class="ticket__divider">
       <div class="ticket__totals">
@@ -1148,10 +1200,21 @@ function renderTicket(data) {
           <span>Subtotal</span>
           <span>$${data.subtotal.toFixed(2)}</span>
         </div>
+        ${ticketDeliveryFee > 0 ? `
+        <div class="ticket__total-row">
+          <span>🛵 Cobro de Domicilio</span>
+          <span>$${ticketDeliveryFee.toFixed(2)}</span>
+        </div>
+        ` : ''}
         <div class="ticket__total-row grand">
           <span>TOTAL</span>
           <span>$${data.total.toFixed(2)}</span>
         </div>
+      </div>
+      <div style="text-align:center; padding: 0.6rem 0; border-top: 1px dashed #ccc; border-bottom: 1px dashed #ccc; margin: 0.5rem 0;">
+        <span style="font-size: 1.3em; font-weight: 900; letter-spacing: 2px; text-transform: uppercase;">
+          ${(data.paymentStatus || 'Pendiente').toUpperCase()}
+        </span>
       </div>
       <div class="ticket__footer">
         ¡Gracias por su compra en el<br>
@@ -1248,6 +1311,15 @@ function newOrder() {
   // Clear customer fields
   customerNameInput.value = '';
   customerPhoneInput.value = '';
+  customerHoraInput.value = '';
+  // Reset payment status and delivery fee
+  paymentStatus = 'Pendiente';
+  deliveryFee = 0;
+  if (deliveryFeeInput) deliveryFeeInput.value = '';
+  if (btnPendiente) { btnPendiente.classList.add('active'); }
+  if (btnPagado) { btnPagado.classList.remove('active'); }
+  if (paymentStatusSection) paymentStatusSection.style.display = 'none';
+  if (deliveryFeeSection) deliveryFeeSection.style.display = 'none';
   // Reset category to Tradicionales
   activeCategory = 'tradicionales';
   activeSubcategory = null;
